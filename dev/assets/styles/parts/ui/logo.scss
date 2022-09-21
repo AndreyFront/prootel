@@ -1,0 +1,10 @@
+.logo {
+    display: grid;
+
+    &__icon {
+        width: 215px;
+        height: 101px;
+        object-fit: contain;
+        object-position: center;
+    }
+}

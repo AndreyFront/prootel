@@ -1,0 +1,26 @@
+.social-network {
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(4, max-content);
+        grid-column-gap: 24px;
+    }
+
+    &__li {}
+
+    &__link {
+
+        &:hover .social-network__icon use {
+            fill: $color-4;
+        }
+    }
+
+    &__icon {
+        width: 56px;
+        height: 56px;
+
+        use {
+            fill: $color-2;
+            transition: fill $transition-time;
+        }
+    }
+}

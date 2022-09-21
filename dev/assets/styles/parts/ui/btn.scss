@@ -1,0 +1,95 @@
+.btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 5px;
+    text-decoration: none;
+    border: 1px solid;
+    border-color: transparent;
+    transition: background-color $transition-time, border-color $transition-time;
+
+    &:not([disabled]) {
+        cursor: pointer;
+    }
+
+    &[disabled] {
+        cursor: default;
+        opacity: 0.3;
+    }
+
+    &__icon {
+        width: 20px;
+        height: 20px;
+
+        use {
+            transition: fill $transition-time, stroke $transition-time;
+        }
+    }
+
+    &__text {
+        transition: color $transition-time;
+    }
+
+    &--size--lg,
+    &--size--md,
+    &--size--sm {
+        min-height: 49px;
+
+        .btn {
+            &__text {
+                font-size: 16px;
+                line-height: 1em;
+            }
+        }
+    }
+
+    &--size--lg {
+        width: 234px;
+    }
+
+    &--size--md {
+        width: 183px;
+    }
+
+    &--size--sm {
+        width: 165px;
+    }
+
+    &--theme--primary,
+    &--theme--secondary {
+        .btn {
+            &__text {
+                font-weight: 500;
+            }
+        }
+    }
+
+    &--theme--primary {
+        background-color: $color-4;
+
+        &:not([disabled]):hover {
+            background-color: $color-5;
+        }
+        
+        .btn {
+            &__text {
+                color: $color-3;
+            }
+        }
+    }
+
+    &--theme--secondary {
+        background-color: $color-1;
+
+        &:not([disabled]):hover {
+            background-color: $color-6;
+        }
+        
+        .btn {
+            &__text {
+                color: $color-2;
+            }
+        }
+    }
+}

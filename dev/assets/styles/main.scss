@@ -6,7 +6,7 @@
 
 * {
     box-sizing: border-box;
-    font-family: 'NameFont', sans-serif;
+    font-family: $main-font, sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.2em;
@@ -22,7 +22,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     color: $main-color;
-    background-color: $first-color;
+    background-color: $color-1;
 }
 
 @import './parts/pages';

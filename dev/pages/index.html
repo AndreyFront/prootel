@@ -8,9 +8,9 @@
     <body>
         <div class="wrapper-page">
             @include('./include/layouts/header.html')
-            <main class="page main-page">
+            <main class="page main-page" data-page="page">
                 <!-- @include('./include/components/name.html') -->
-                <h2>Main</h2>
+                @include('./include/components/section-main-slider.html')
             </main>
             @include('./include/layouts/footer.html')
             @include('./include/layouts/scripts.html')

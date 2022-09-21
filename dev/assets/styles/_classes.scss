@@ -8,14 +8,14 @@
 
 .max-width {
     max-width: 1440px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 70px;
+    padding-right: 70px;
 }
 
 .scroll-lock {
-    position: fixed;
-    right: 0;
-    left: 0;
+    // position: fixed;
+    // right: 0;
+    // left: 0;
     overflow: hidden;
 }
 
@@ -24,11 +24,38 @@
 }
 
 a {
-    color: blue;
+    color: $color-2;
 }
 
 .title-reset {
     margin: 0;
+}
+
+.link-decore-line {
+    position: relative;
+    transition: color 0.4s;
+
+    &:hover {
+        color: $color-4;
+    }
+
+    &:hover::after {
+        width: 100%;
+        opacity: 1;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 100%;
+        transform: translateY(3px);
+        height: 1px;
+        width: 0%;
+        opacity: 0;
+        background-color: $color-4;
+        transition: width 0.4s, opacity 0.4s;
+    }
 }
 
 .link-reset {

@@ -1,3 +1,104 @@
 .footer {
     flex: 0 0 auto;
+
+    &__wrapper-contacts {
+        display: grid;
+        grid-template-columns: max-content max-content auto;
+        align-items: center;
+        padding-right: 81px;
+        border-bottom: 1px solid $color-7;
+    }
+
+    &__block-info {
+        display: grid;
+        margin-left: 27px;
+    }
+
+    &__text-info {}
+
+    &__wrapper-links {
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        grid-column-gap: 72px;
+        margin-left: auto;
+    }
+
+    &__link {
+        @include adaptiv-font(24, 20);
+    }
+
+    &__wrapper-nav {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        justify-content: space-between;
+    }
+
+    &__block-nav {}
+
+    &__nav-list {
+        display: grid;
+        grid-template-columns: repeat(3, max-content);
+        grid-column-gap: 130px;
+        grid-row-gap: 20px;
+    }
+
+    &__nav-li {}
+
+    &__nav-link {
+        @include adaptiv-font(22, 18);
+    }
+
+    &__container {
+        padding: 40px 70px 0 70px;
+    }
+
+    &__wrapper-copyright {
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 70px;
+        padding: 24px 0;
+        border-top: 1px solid $color-7;
+    }
+
+    &__link-copyright {
+        color: $color-8;
+        transition: color $transition-time;
+
+        &:hover {
+            color: $color-2;
+        }
+
+        &--developer {
+            display: grid;
+            grid-auto-columns: auto;
+            grid-auto-flow: column;
+            grid-column-gap: 4px;
+            align-items: center;
+            justify-content: start;
+        }
+    }
+
+    &__link-developer-text {
+        
+        span {
+            color: $color-2;
+        }
+    }
+
+    &__link-developer-icon {
+        width: 18px;
+        height: 13px;
+    }
+
+    .logo {
+        &__icon {
+            width: 264px;
+        }
+    }
+
+    .main-container {
+        padding: 0;
+    }
 }

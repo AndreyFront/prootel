@@ -1,0 +1,39 @@
+.section-main-slider {
+    position: relative;
+    padding: 35px 0 72px 0;
+
+    &__decore-block {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 455px;
+        height: 100%;
+        background-color: $color-4;
+    }
+
+    &__wrapper-info {
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        justify-content: start;
+        grid-column-gap: 125px;
+    }
+
+    &__block-description {
+        max-width: 457px;
+        text-align: right;
+    }
+
+    &__description {
+        @include adaptiv-font(20, 18);
+    }
+
+    .title {
+        color: $color-4;
+        max-width: 639px;
+        line-height: 1.01em;
+    }
+
+    .main-container {
+        position: relative;
+    }
+}

@@ -1,3 +1,105 @@
 .header {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    width: 100%;
     flex: 0 0 auto;
+    background-color: $color-1;
+
+    &__nav {}
+
+    &__nav-list {
+        display: grid;
+        grid-auto-columns: max-content;
+        grid-auto-flow: column;
+        grid-column-gap: 40px;
+    }
+
+    &__nav-li {
+        position: relative;
+
+        &:hover .header__nav-link {
+            color: $color-4;
+        }
+
+        &:hover .header__nav-link::after {
+            width: 100%;
+            opacity: 1;
+        }
+
+        &:hover .header__wrapper-nav-list-second {
+            padding-top: 20px;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &__nav-block-link {}
+
+    &__nav-link {
+        @include adaptiv-font(16, 18);
+    }
+
+    &__wrapper-nav-list-second {
+        position: absolute;
+        top: 100%;
+        width: 160px;
+        padding-top: 30px;
+        opacity: 0;
+        visibility: hidden;
+        transition: padding-top $transition-time, visibility $transition-time, opacity $transition-time;
+    }
+
+    &__nav-list-second {
+        position: relative;
+        display: grid;
+        grid-row-gap: 12px;
+        align-self: start;
+        background-color: $color-2;
+        padding: 15px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 13px;
+            height: 10px;
+            bottom: 100%;
+            left: 5px;
+            background-color: $color-2;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+    }
+
+    &__nav-li-second {}
+
+    &__nav-link-second {
+        color: $color-3;
+        transition: opacity $transition-time;
+
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+
+    &__block-contacts {
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        grid-column-gap: 30px;
+        align-items: center;
+        justify-content: end;
+        margin-left: auto;
+        margin-right: 77px;
+    }
+
+    .logo {
+        margin-left: auto;
+    }
+
+    .main-container {
+        display: grid;
+        align-items: center;
+        grid-template-columns: max-content auto max-content;
+        padding-right: 0;
+    }
 }

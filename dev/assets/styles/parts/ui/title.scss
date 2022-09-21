@@ -1,0 +1,25 @@
+.title {
+    font-family: $secondary-font, sans-serif;
+    color: $color-3;
+
+    &--h1 {
+        @include adaptiv-font(64, 36);
+        text-transform: uppercase;
+    }
+
+    &--h2 {
+        @include adaptiv-font(64, 36);
+    }
+
+    &--h3 {
+        @include adaptiv-font(48, 32);
+    }
+
+    &--h4 {
+        @include adaptiv-font(40, 28);
+    }
+
+    &--h5 {
+        @include adaptiv-font(32, 20);
+    }
+}

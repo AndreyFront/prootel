@@ -1,3 +1,53 @@
 <footer class="footer">
-    <h2>Footer</h2>
+    <div class="main-container max-width">
+        <div class="footer__wrapper-contacts">
+            <a href="#" class="logo">
+                <img src="./assets/images/logo-light.svg" class="logo__icon" alt="">
+            </a>
+            <div class="footer__block-info">
+                <span class="footer__text-info">г. Краснодар, ул. Дзержинского, 157, 4 этаж, 44 офис</span>
+                <span class="footer__text-info">Пн-пт с 9:00 до 18:00</span>
+            </div>
+            <div class="footer__wrapper-links">
+                <a href="tel:79397826864" class="footer__link link-decore-line link-reset">+7 939 782-68-64</a>
+                <a href="#" class="footer__link link-decore-line link-reset">office@prohotel-group.ru</a>
+            </div>
+        </div>
+        <div class="footer__container">
+            <div class="footer__wrapper-nav">
+                <div class="footer__block-nav">
+                    <ul class="footer__nav-list list-reset">
+                        <li class="footer__nav-li">
+                            <a href="#" class="footer__nav-link link-decore-line link-reset">Проекты</a>
+                        </li>
+                        <li class="footer__nav-li">
+                            <a href="#" class="footer__nav-link link-decore-line link-reset">Отзывы</a>
+                        </li>
+                        <li class="footer__nav-li">
+                            <a href="#" class="footer__nav-link link-decore-line link-reset">О нас</a>
+                        </li>
+                        <li class="footer__nav-li">
+                            <a href="#" class="footer__nav-link link-decore-line link-reset">Услуги</a>
+                        </li>
+                        <li class="footer__nav-li">
+                            <a href="#" class="footer__nav-link link-decore-line link-reset">Партнёры</a>
+                        </li>
+                        <li class="footer__nav-li">
+                            <a href="#" class="footer__nav-link link-decore-line link-reset">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+                @include('../components/social-network.html')
+            </div>
+            <div class="footer__wrapper-copyright">
+                <a href="#" class="footer__link-copyright link-reset">Политика конфиденциальности</a>
+                <a href="https://affetta.ru/" target="_blank" class="footer__link-copyright footer__link-copyright--developer link-reset">
+                    <span class="footer__link-developer-text">Сделано в <span>Affetta</span></span>
+                    <svg class="footer__link-developer-icon">
+                        <use xlink:href="./assets/icons/sprite-svg.svg#developer"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
 </footer>
