@@ -1,0 +1,128 @@
+.main-slider {
+    position: relative;
+    margin-top: 142px;
+
+    &__block-image {
+        position: relative;
+        height: 528px;
+    }
+
+    &__block-progress-line {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 8px;
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    &__progress-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: $color-4;
+
+        &--animate {
+            animation: progress-line 3s cubic-bezier(.3,0,.3,1) forwards;
+        }
+    }
+
+    &__slider {
+        &.swiper {
+            max-width: 1221px;
+            padding-left: 30px;
+            min-height: 528px;
+            margin-left: -30px;
+        }
+
+        &.swiper-paused .main-slider__progress-line {
+            animation-play-state: paused;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &__wrapper-info {
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        justify-content: space-between;
+        align-items: start;
+        padding-right: 75px;
+        margin-top: 32px;
+        color: $color-2;
+    }
+
+    &__block-info {
+        position: relative;
+        display: grid;
+        align-items: start;
+        grid-row-gap: 6px;
+    }
+
+    &__number-slide,
+    &__title-slide {
+        font-family: $secondary-font, sans-serif;
+    }
+
+    &__number-slide {
+        position: absolute;
+        top: 2px;
+        right: calc(100% + 10px);
+        @include adaptiv-font(16, 14);
+        color: $color-9;
+    }
+
+    &__title-slide {
+        @include adaptiv-font(32, 24);
+    }
+
+    &__subtitle-slide {}
+
+    .swiper-pagination,
+    .arrows-group {
+        position: absolute;
+        top: 50%;
+    }
+
+    .swiper-slide {
+        opacity: 0 !important;
+        transition: opacity 0.5s;
+
+        &.swiper-slide-active {
+            opacity: 1 !important;
+        }
+    }
+
+    .arrows-group {
+        right: 0;
+        transform: translateY(-50%);
+    }
+
+    .swiper-pagination {
+        width: max-content;
+        height: 20px;
+        right: 100%;
+        bottom: 0;
+        transform: translate(calc(-100% - 8px), -50%) rotate(90deg);
+
+        span {
+            font-family: $secondary-font, sans-serif;
+            @include adaptiv-font(16, 14);
+        }
+    }
+
+    @keyframes progress-line {
+        0% {
+            width: 0%;
+        }
+    
+        100% {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,57 @@
+.link {
+    position: relative;
+
+    &:hover &__name {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    &:hover &__icon {
+        left: calc(100% + 8px);
+    }
+
+    &--theme--light {
+        .link {
+            &__name {
+                color: $color-2;
+            }
+
+            &__icon {        
+                use {
+                    fill: $color-2;
+                }
+            }
+        }
+    }
+
+    &--theme--dark {
+        .link {
+            &__name {
+                color: $color-3;
+            }
+
+            &__icon {        
+                use {
+                    fill: $color-3;
+                }
+            }
+        }
+    }
+
+    &__name {
+        opacity: 0;
+        pointer-events: none;
+        font-weight: 500;
+        transition: opacity 0.4s;
+    }
+
+    &__icon {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+        transition: left 0.4s;
+    }
+}
