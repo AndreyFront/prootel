@@ -15,7 +15,7 @@ window.onload = () => {
     }
 
     function mainSlider() {
-        const mainSlider = document.querySelectorAll('[data-main-slider="mainSlider"]')
+        const mainSlider = document.querySelectorAll('[data-main-slider="main-slider"]')
 
         if (!mainSlider.length) return
 

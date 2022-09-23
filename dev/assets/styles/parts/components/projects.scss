@@ -1,0 +1,10 @@
+.projects {
+    padding-top: 50px;
+    background-color: $color-5;
+
+    &__wrapper-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 61px;
+    }
+}

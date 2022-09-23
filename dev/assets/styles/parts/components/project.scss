@@ -1,0 +1,82 @@
+.project {
+    position: relative;
+    height: 876px;
+
+    &__block-decore {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 45%;
+        height: 100%;
+        background-color: $color-3;
+    }
+
+    &__block-description {
+        display: grid;
+        margin-top: auto;
+
+        .btn {
+            margin-top: 16px;
+        }
+    }
+
+    &__name {
+        font-size: 18px;
+        font-weight: 500;
+        color: $color-2;
+    }
+
+    &__description {
+        color: $color-4;
+        margin-top: 8px;
+    }
+
+    .title {
+        color: $color-2;
+    }
+
+    .main-slider {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 55%;
+        margin-top: 0;
+
+        &__slider {
+            &.swiper {
+                max-width: none;
+                padding-left: 0;
+                min-height: 100%;
+                margin-left: 0;
+            }
+        }
+
+        &__block-image {
+            height: 100%;
+        }
+
+        &__block-progress-line {
+            top: 0;
+        }
+
+        .arrows-group {
+            z-index: 1;
+            left: 0;
+            width: max-content;
+            transform: translate(-100%, -50%);
+        }
+
+        .swiper-pagination {
+            display: none;
+        }
+    }
+
+    .main-container {
+        position: relative;
+        display: grid;
+        grid-template-rows: max-content auto;
+        height: 100%;
+        padding-top: 73px;
+        padding-bottom: 66px;
+    }
+}
