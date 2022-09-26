@@ -6,6 +6,10 @@
     flex: 0 0 auto;
     background-color: $color-1;
 
+    &__burger {
+        display: none;
+    }
+
     &__nav {}
 
     &__nav-list {
@@ -36,8 +40,14 @@
 
     &__nav-block-link {}
 
-    &__nav-link {
+    &__nav-link {}
+
+    &__nav-link-text {
         @include adaptiv-font(16, 18);
+    }
+
+    &__nav-link-icon {
+        display: none;
     }
 
     &__wrapper-nav-list-second {

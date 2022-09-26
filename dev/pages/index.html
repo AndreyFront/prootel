@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        @include('./include/layouts/head.html', {
-            "title": "Main page"
-        })
-    </head>
-    <body>
-        <div class="wrapper-page">
-            @include('./include/layouts/header.html')
-            <main class="page main-page" data-page="page">
-                <!-- @include('./include/components/name.html') -->
-                @include('./include/components/section-main-slider.html')
-                @include('./include/components/why-we.html')
-                @include('./include/components/project.html')
-                @include('./include/components/projects.html')
-                @include('./include/components/geography-objects.html')
-                @include('./include/components/services.html')
-                @include('./include/components/ready-decisions.html')
-                @include('./include/components/about-company.html')
-                @include('./include/components/reviews.html')
-                @include('./include/components/our-channel.html')
-            </main>
-            @include('./include/layouts/footer.html')
-            @include('./include/layouts/scripts.html')
+<head>
+    @include('./include/layouts/head.html', {
+        "title": "Links"
+    })
+</head>
+<body>
+    <main class="dev dev--links">
+        <div class="dev__box-title">
+            <h1 class="dev__title">Links</h1>
         </div>
-    </body>
+
+        <div class="dev__box">
+            <a href="./home.html" class="dev__link link-reset desktop">Главная</a>
+        </div>
+        <!-- <div class="dev__box">
+            <a href="./_components.html" class="dev__link link-reset">Компоненты</a>
+        </div>
+        <div class="dev__box">
+            <a href="./_ui.html" class="dev__link link-reset">Пользовательские элементы</a>
+        </div> -->
+    </main>
+    @include('./include/layouts/scripts.html')
+</body>
 </html>

@@ -95,10 +95,11 @@ a {
         border-bottom: 1px solid;
         border-bottom-color: transparent;
         padding-left: 35px;
+        color: $main-color;
         transition: border-bottom $transition-time;
 
         &:hover {
-            border-bottom-color: blue;
+            border-bottom-color: $color-4;
         }
 
         &.desktop {

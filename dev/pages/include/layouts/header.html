@@ -1,12 +1,22 @@
-<header class="header" data-header="header">
+<header class="header" data-header="header" data-menu="block-menu">
     <div class="main-container max-width">
-        <nav class="header__nav">
+        <div class="header__burger" data-menu="btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="header__nav" data-menu="content" data-header="nav">
             <ul class="header__nav-list list-reset">
-                <li class="header__nav-li">
-                    <div class="header__nav-block-link">
-                        <a href="#" class="header__nav-link link-decore-line link-reset">Проекты</a>
+                <li class="header__nav-li" data-menu="block-content">
+                    <div class="header__nav-block-link" data-menu="header">
+                        <a href="#" class="header__nav-link link-decore-line link-reset">
+                            <span class="header__nav-link-text">Проекты</span>
+                            <svg class="header__nav-link-icon">
+                                <use xlink:href="./assets/icons/sprite-svg.svg#arrow-down"/>
+                            </svg>
+                        </a>
                     </div>
-                    <div class="header__wrapper-nav-list-second">
+                    <div class="header__wrapper-nav-list-second" data-menu="body">
                         <ul class="header__nav-list-second list-reset">
                             <li class="header__nav-li-second">
                                 <a href="#" class="header__nav-link-second link-reset">Проекты</a>
@@ -22,14 +32,21 @@
                 </li>
                 <li class="header__nav-li">
                     <div class="header__nav-block-link">
-                        <a href="#" class="header__nav-link link-decore-line link-reset">Услуги</a>
+                        <a href="#" class="header__nav-link link-decore-line link-reset">
+                            <span class="header__nav-link-text">Услуги</span>
+                        </a>
                     </div>
                 </li>
-                <li class="header__nav-li">
-                    <div class="header__nav-block-link">
-                        <a href="#" class="header__nav-link link-decore-line link-reset">О нас</a>
+                <li class="header__nav-li" data-menu="block-content">
+                    <div class="header__nav-block-link" data-menu="header">
+                        <a href="#" class="header__nav-link link-decore-line link-reset">
+                            <span class="header__nav-link-text">О нас</span>
+                            <svg class="header__nav-link-icon">
+                                <use xlink:href="./assets/icons/sprite-svg.svg#arrow-down"/>
+                            </svg>
+                        </a>
                     </div>
-                    <div class="header__wrapper-nav-list-second">
+                    <div class="header__wrapper-nav-list-second" data-menu="body">
                         <ul class="header__nav-list-second list-reset">
                             <li class="header__nav-li-second">
                                 <a href="#" class="header__nav-link-second link-reset">О компании</a>
@@ -42,29 +59,38 @@
                 </li>
                 <li class="header__nav-li">
                     <div class="header__nav-block-link">
-                        <a href="#" class="header__nav-link link-decore-line link-reset">Отзывы</a>
+                        <a href="#" class="header__nav-link link-decore-line link-reset">
+                            <span class="header__nav-link-text">Отзывы</span>
+                        </a>
                     </div>
                 </li>
                 <li class="header__nav-li">
                     <div class="header__nav-block-link">
-                        <a href="#" class="header__nav-link link-decore-line link-reset">Контакты</a>
+                        <a href="#" class="header__nav-link link-decore-line link-reset">
+                            <span class="header__nav-link-text">Контакты</span>
+                        </a>
                     </div>
                 </li>
                 <li class="header__nav-li">
                     <div class="header__nav-block-link">
-                        <a href="#" class="header__nav-link link-decore-line link-reset">Партнёры</a>
+                        <a href="#" class="header__nav-link link-decore-line link-reset">
+                            <span class="header__nav-link-text">Партнёры</span>
+                        </a>
                     </div>
                 </li>
             </ul>
         </nav>
         <div class="header__block-contacts">
-            <a href="tel:79397826864" class="header__phone link-decore-line link-reset">+7 939 782-68-64</a>
+            <a href="tel:79397826864" class="header__phone link-decore-line link-reset" data-header="phone">+7 939 782-68-64</a>
             <a href="#" class="btn btn--size--sm btn--theme--primary">
                 <span class="btn__text">Заказать проект</span>
             </a>
         </div>
         <a href="#" class="logo">
-            <img src="./assets/images/logo-dark.svg" class="logo__icon" alt="">
+            <picture class="logo__icon">
+                <source srcset="./assets/images/logo-dark.svg" media="(min-width: 1201px)" />
+                <img src="./assets/images/logo-mob.svg" alt="">
+            </picture>
         </a>
     </div>
 </header>

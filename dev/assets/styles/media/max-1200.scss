@@ -1,1 +1,180 @@
-@media screen and (max-width: 1200px) {}
+@media screen and (max-width: 1200px) {
+    .header {
+
+        &.active-menu {
+            .header__nav {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+
+            .header__burger span {
+                &:nth-child(1) {
+                    transform: rotate(45deg);
+                    top: 3px;
+                    left: 5px;
+                }
+
+                &:nth-child(2) {
+                    width: 0%;
+                    opacity: 0;
+                }
+
+                &:nth-child(3) {
+                    transform: rotate(-45deg);
+                    top: 25px;
+                    left: 5px;
+                }
+            }
+        }
+
+        &__burger {
+            display: grid;
+            width: 30px;
+            height: 30px;
+            position: relative;
+            cursor: pointer;
+            transition: .5s ease-in-out;
+
+            span {
+                display: block;
+                position: absolute;
+                height: 2px;
+                width: 100%;
+                background: $color-4;
+                border-radius: 4px;
+                opacity: 1;
+                left: 0;
+                transform: rotate(0deg);
+                transition: $transition-time ease-in-out;
+
+                &:nth-child(1) {
+                    top: 7px;
+                    transform-origin: left center;
+                }
+
+                &:nth-child(2) {
+                    top: 17px;
+                    transform-origin: left center;
+                }
+
+                &:nth-child(3) {
+                    top: 27px;
+                    transform-origin: left center;
+                }
+            }
+        }
+
+        &__nav {
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            margin-left: -70px;
+            padding: 20px 50px;
+            height: calc(100vh - 70px);
+            background-color: $color-3;
+            transform: translateY(10px);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: transform $transition-time, opacity $transition-time, visibility $transition-time;
+        }
+
+        &__nav-list {
+            grid-auto-flow: row;
+            grid-auto-columns: auto;
+            max-width: 400px;
+        }
+
+        &__nav-link,
+        &__phone {
+            display: block;
+            padding: 14px 20px;
+        }
+
+        &__nav-link {
+            display: grid;
+            grid-template-columns: repeat(2, max-content);
+            justify-content: space-between;
+            grid-column-gap: 20px;
+
+            &:hover .header__nav-link-text {
+                color: $color-2;
+            }
+
+            &::after {
+                display: none;
+            }
+        }
+        
+        &__nav-block-link {
+            &.active {
+                .header__nav-link-icon {
+                    transform: rotate(-180deg);
+                }
+            }
+        }
+
+        &__nav-li {
+            &:hover .header__wrapper-nav-list-second {
+                padding-top: 0;
+            }
+        }
+
+        &__nav-link-icon {
+            display: block;
+            width: 24px;
+            height: 24px;
+            transition: transform 0.4s;
+        }
+
+        &__phone {
+            margin-top: 20px;
+            color: $color-4;
+        }
+
+        &__wrapper-nav-list-second {
+            position: relative;
+            top: 0;
+            opacity: 1;
+            visibility: visible;
+            padding-top: 0;
+            width: 100%;
+            overflow: hidden;
+            transition: height 0.4s, padding 0.4s;
+
+            &.not-active {
+                padding: 0;
+            }
+        }
+
+        &__nav-list-second {
+            padding: 0;
+            background-color: transparent;
+
+            &::before {
+                display: none;
+            }
+        }
+
+        &__nav-link-second {
+            display: block;
+            padding: 14px 20px 14px 40px;
+            color: $color-2;
+        }
+
+        .logo {
+            &__icon {
+                width: 62px;
+                height: 30px;
+            }
+        }
+
+        .main-container {
+            grid-template-columns: 70px auto max-content;
+            padding-right: 70px;
+            height: 70px;
+        }
+    }
+}

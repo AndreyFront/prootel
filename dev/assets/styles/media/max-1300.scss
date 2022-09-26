@@ -1,0 +1,24 @@
+@media screen and (max-width: 1300px) {
+    .header {
+        &__block-contacts {
+            margin-right: 40px;
+        }
+
+        &__nav-list {
+            grid-column-gap: 25px;
+        }
+    }
+
+    .footer {
+        &__wrapper-links {
+            grid-column-gap: 30px;
+            grid-template-columns: 1fr;
+            grid-row-gap: 10px;
+            justify-content: end;
+        }
+
+        &__link {
+            text-align: right;
+        }
+    }
+}
