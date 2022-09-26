@@ -1,0 +1,44 @@
+.about-company {
+    padding: 79px 0 39px 0;
+    background-color: $color-3;
+    color: $color-2;
+
+    &__block-info {}
+
+    &__block-description {
+        display: grid;
+        grid-row-gap: 5px;
+        align-self: start;
+        margin-top: 24px;
+
+        p {
+            margin: 0;
+            line-height: 1.5em;
+        }
+    }
+
+    &__block-image {
+        height: 458px;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .title {
+        color: $color-2;
+    }
+
+    .btn {
+        margin-top: 28px;
+    }
+
+    .main-container {
+        display: grid;
+        grid-template-columns: 495px auto;
+        grid-column-gap: 120px;
+    }
+}

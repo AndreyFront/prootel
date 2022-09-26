@@ -27,6 +27,10 @@
         @include adaptiv-font(20, 18);
     }
 
+    .main-slider {
+        margin-top: 142px;
+    }
+
     .title {
         color: $color-4;
         max-width: 639px;

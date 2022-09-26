@@ -116,6 +116,26 @@ window.onload = () => {
         })
     }
 
+    function reviews() {
+        const reviews = document.querySelector('[data-reviews="reviews"]')
+
+        if (!reviews) return
+
+        const slider = reviews.querySelector('[data-reviews="slider"]')
+        const btnPrev = reviews.querySelector('[data-reviews="btn-prev"]')
+        const btnNext = reviews.querySelector('[data-reviews="btn-next"]')
+
+        var swiper = new Swiper(slider, {
+            slidesPerView: 2,
+            spaceBetween: 48,
+            navigation: {
+                nextEl: btnNext,
+                prevEl: btnPrev,
+            },
+        })
+    }
+
     header()
     mainSlider()
+    reviews()
 }

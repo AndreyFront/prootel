@@ -1,0 +1,67 @@
+.ready-decisions {
+    padding: 89px 0 195px 0;
+    background-color: $color-5;
+
+    &__block-header {
+        display: grid;
+        grid-row-gap: 24px;
+        max-width: 815px;
+    }
+
+    &__description {
+        line-height: 1.5em;
+    }
+
+    &__wrapper-decisions {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 30px;
+        margin-top: 41px;
+    }
+
+    &__decision-card {
+        display: grid;
+        justify-content: center;
+        grid-row-gap: 16px;
+
+        &:hover .ready-decisions__image {
+            transform: scale(1.05);
+        }
+
+        &:hover .link {
+            transform: translateX(-50%);
+        }
+
+        &:hover .link__name {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    
+        &:hover .link__icon {
+            left: calc(100% + 8px);
+        }
+    }
+
+    &__block-image {
+        position: relative;
+        height: 414px;
+        overflow: hidden;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: transform $transition-time;
+    }
+
+    .link {
+        margin: 0 auto;
+        transition: transform 0.4s;
+    }
+
+    .title {}
+
+    .main-container {}
+}
