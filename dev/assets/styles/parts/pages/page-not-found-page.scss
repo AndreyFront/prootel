@@ -1,0 +1,56 @@
+.page-not-found-page {
+    position: relative;
+    height: 727px;
+
+    &__block-image {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 705px;
+        height: 100%;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &__wrapper-content {
+        display: grid;
+        grid-row-gap: 40px;
+    }
+
+    &__icon {
+        width: 215px;
+        height: 94px;
+    }
+
+    &__subtitle,
+    &__link {
+        @include adaptiv-font(20, 18);
+        color: $color-4;
+    }
+
+    &__subtitle {
+        max-width: 434px;
+    }
+
+    &__link {
+        border-bottom: 1px solid;
+        border-bottom-color: $color-4;
+        transition: border-bottom-color $transition-time;
+
+        &:hover {
+            border-bottom-color: transparent;
+        }
+    }
+
+    .main-container {
+        position: relative;
+        display: grid;
+        align-items: center;
+        height: 100%;
+    }
+}

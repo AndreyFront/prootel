@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        @include('./include/layouts/head.html', {
+            "title": "Наши проекты"
+        })
+    </head>
+    <body>
+        <div class="wrapper-page">
+            @include('./include/layouts/header.html')
+            <main class="page our-projects-page" data-page="page">
+                <!-- @include('./include/components/name.html') -->
+                <div class="main-container max-width">                @include('./include/components/block-title.html')</div>
+
+                @include('./include/components/geography-objects.html')
+            </main>
+            @include('./include/layouts/footer.html')
+            @include('./include/layouts/scripts.html')
+        </div>
+    </body>
+</html>

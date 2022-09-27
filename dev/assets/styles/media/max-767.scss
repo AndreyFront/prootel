@@ -1,1 +1,83 @@
-@media screen and (max-width: 767px) {}
+@media screen and (max-width: 767px) {
+    .why-we {
+        &__wrapper-bottom-content {
+
+            .main-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+
+    .projects {
+
+        &__wrapper-cards {
+            grid-template-columns: 1fr;
+            grid-row-gap: 10px;
+            margin-top: 32px;
+        }
+    }
+
+    .project-card {
+        &__wrapper-info {
+            padding: 20px;
+            height: 266px;
+        }
+
+        &__block-info {
+            grid-row-gap: 10px;
+        }
+    }
+
+    .ready-decisions {
+
+        &__wrapper-decisions {
+            grid-template-columns: 1fr;
+            grid-row-gap: 12px;
+        }
+
+        &__decision-card {
+            justify-content: stretch;
+        }
+
+        &__block-image {
+            height: 262px;
+        }
+    }
+
+    .about-company {
+        &__block-image {
+            height: 223px;
+        }
+    }
+
+    .our-channel {
+        height: max-content;
+
+        &__description,
+        .title {
+            text-align: left;
+        }
+
+        &__description {
+            grid-row-gap: 10px;
+
+            p {
+                line-height: 1.5em;
+            }
+        }
+
+        .btn {
+            margin: 40px auto 0 0;
+        }
+
+        .title {
+            line-height: 1em;
+        }
+
+        .main-container {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            height: 100%;
+        }
+    }
+}

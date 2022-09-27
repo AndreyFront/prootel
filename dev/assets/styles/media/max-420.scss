@@ -1,1 +1,22 @@
-@media screen and (max-width: 420px) {}
+@media screen and (max-width: 420px) {
+    .project {
+        &__block-description {
+            .btn {
+                width: 100%;
+                margin-top: 20px
+            }
+        }
+    }
+
+    .about-company {
+        .btn {
+            width: 100%;
+        }
+    }
+
+    .our-channel {
+        .btn {
+            width: 100%;
+        }
+    }
+}

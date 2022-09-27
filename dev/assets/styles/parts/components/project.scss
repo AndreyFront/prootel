@@ -40,10 +40,11 @@
         top: 0;
         right: 0;
         width: 55%;
-        margin-top: 0;
+        height: 100%;
 
         &__slider {
             &.swiper {
+                display: grid;
                 max-width: none;
                 padding-left: 0;
                 min-height: 100%;

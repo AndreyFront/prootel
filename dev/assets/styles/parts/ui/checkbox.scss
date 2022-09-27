@@ -1,0 +1,96 @@
+.checkbox {
+
+    &:not([disabled]):hover > &__label &__text {
+        cursor: pointer;
+    }
+
+    &:not([disabled]):hover > &__label &__decore::before {
+        border-color: $main-color;
+    }
+
+    &[disabled] {
+        pointer-events: none;
+    }
+
+    &[disabled] > &__label &__text {
+        color: $color-11;
+    } 
+
+    &[disabled] > &__label &__decore::before {
+        border-color: $color-10;
+    }
+
+    &.active {
+        .checkbox__decore::before {
+            border-color: $color-3;
+        }
+
+        .checkbox__decore::after {
+            opacity: 1;
+        }
+    }
+
+    &__label {
+        position: relative;
+        display: grid;
+        padding-left: 28px;
+    }
+
+    &__input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        display: none;
+
+        &:checked ~ .checkbox__decore::before {
+            border-color: $color-3;
+        }
+
+        &:checked ~ .checkbox__decore::after {
+            opacity: 1;
+        }
+    }
+
+    &__text {
+        color: $color-3;
+        transition: color $transition-time;
+    }
+
+    &__decore {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &::before {
+            width: 18px;
+            height: 18px;
+            border: 2px solid;
+            border-radius: 1px;
+            border-color: $color-11;
+            transition: border-color $transition-time;
+        }
+
+        &::after {
+            width: 14px;
+            height: 14px;
+            background-image: url('../images/check-dark.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            opacity: 0;
+            transition: opacity $transition-time;
+        }
+    }
+}

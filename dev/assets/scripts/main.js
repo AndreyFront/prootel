@@ -49,6 +49,13 @@ window.onload = () => {
         })
     }
 
+    function scrollbarWidth() {
+        const documentWidth = parseInt(document.documentElement.clientWidth)
+        const windowsWidth = parseInt(window.innerWidth)
+        const scrollbarWidth = windowsWidth - documentWidth
+        return scrollbarWidth
+      }
+
     function header() {
         const header = document.querySelector('[data-header="header"]')
 
@@ -76,6 +83,8 @@ window.onload = () => {
         const mainSlider = document.querySelectorAll('[data-main-slider="main-slider"]')
 
         if (!mainSlider.length) return
+
+        const listSliders = []
 
         mainSlider.forEach(itemMainSlider => {
             const slider = itemMainSlider.querySelector('[data-main-slider="slider"]')
@@ -171,7 +180,11 @@ window.onload = () => {
                     }
                 }, true)
             }
+
+            listSliders.push(swiper)
         })
+
+        return listSliders
     }
 
     function reviews() {
@@ -184,12 +197,26 @@ window.onload = () => {
         const btnNext = reviews.querySelector('[data-reviews="btn-next"]')
 
         var swiper = new Swiper(slider, {
-            slidesPerView: 2,
-            spaceBetween: 48,
+            slidesPerView: 1.15,
+            spaceBetween: 10,
             navigation: {
                 nextEl: btnNext,
                 prevEl: btnPrev,
             },
+            breakpoints: {
+                1200: {
+                    slidesPerView: 2,
+                    spaceBetween: 48,
+                },
+                992: {
+                  slidesPerView: 1.5,
+                  spaceBetween: 48,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+            }
         })
     }
 
@@ -208,7 +235,6 @@ window.onload = () => {
     
         btn.addEventListener('click', (event) => {
             event.preventDefault()
-            // content.style.top = `${heightHeader}px`
             header.classList.toggle('active-menu')
             document.body.classList.toggle('scroll-lock')
         })
@@ -227,8 +253,140 @@ window.onload = () => {
         }
     }
 
+    function sectionMainSlider() {
+        const main = document.querySelector('[data-section-main-slider="main"]')
+
+        if (!main) return
+
+        if (window.matchMedia("(min-width: 1200px)").matches) {
+            const decoreBlock = main.querySelector('[data-section-main-slider="decore-block"]')
+            const logoHeader = document.querySelector('.header .logo')
+    
+            if (logoHeader) {
+                const logoHeaderDistance = logoHeader.getBoundingClientRect()
+                decoreBlock.style.width = `${(logoHeader.offsetWidth + (window.screen.availWidth - logoHeaderDistance.right)) - scrollbarWidth()}px`
+            } else {
+                decoreBlock.style.width = '23.4%'
+            }
+        }
+    }
+
+    function whyWe() {
+        const main = document.querySelector('[data-why-we="main"]')
+
+        if (!main) return
+
+        if (window.matchMedia("(max-width: 992px)").matches) {
+            const blockDecore = main.querySelector('[data-why-we="decore-block"]')
+            const slogan = main.querySelector('[data-why-we="slogan"]')
+            
+            const clonedNode = slogan.cloneNode(true)
+
+            if (blockDecore) {
+                blockDecore.appendChild(clonedNode)
+                slogan.remove()
+            }
+        }
+    }
+
+    function project() {
+        const main = document.querySelector('[data-project="main"]')
+
+        if (!main) return
+
+        if (window.matchMedia("(max-width: 992px)").matches) {
+            const blockDecore = main.querySelector('[data-project="block-decore"]')
+            const title = main.querySelector('[data-project="title"]')
+            
+            const clonedNode = title.cloneNode(true)
+
+            if (blockDecore) {
+                blockDecore.appendChild(clonedNode)
+                title.remove()
+            }
+        }
+    }
+
+    function geographyObjects() {
+        const main = document.querySelector('[data-geography-objects="main"]')
+
+        if (!main) return
+
+        if (window.matchMedia("(max-width: 992px)").matches) {
+            const blockDecore = main.querySelector('[data-geography-objects="decore-block"]')
+            const description = main.querySelector('[data-geography-objects="description"]')
+            
+            const clonedNode = description.cloneNode(true)
+
+            if (blockDecore) {
+                blockDecore.appendChild(clonedNode)
+                description.remove()
+            }
+        }
+    }
+
+    function services() {
+        const main = document.querySelector('[data-services="main"]')
+
+        if (!main) return
+
+        if (window.matchMedia("(max-width: 992px)").matches) {
+            const slider = main.querySelector('[data-main-slider="slider"]')
+            const btnPrev = main.querySelector('[data-main-slider="btnPrev"]')
+            const btnNext = main.querySelector('[data-main-slider="btnNext"]')
+
+            // const swiper = new Swiper(slider, {
+            //     slidesPerView: 1.1,
+            //     spaceBetween: 10,
+            //     autoplay: false,
+            //     navigation: {
+            //         nextEl: btnNext,
+            //         prevEl: btnPrev,
+            //     },
+            // })
+        }
+    }
+
+    function select() {
+        const select = document.querySelectorAll('[data-select="select"]')
+
+        if (!select.length) return
+
+        document.addEventListener('click', (event) => {
+            const el = event.target
+
+            if (el.closest('[data-select="select"]')) {
+                const select = el.closest('[data-select="select"]')
+                const title = select.querySelector('[data-select="title"]')
+                const titleContent = title.textContent
+                
+                if (el.closest('[data-select="block-title"]')) {
+                    select.classList.toggle('active')
+                }
+
+                // if (el.closest('[data-select="list"] > li')) {
+                //     const li = el.closest('[data-select="list"] > li')
+                //     const liContent = li.textContent
+                //     title.textContent = liContent
+                //     li.textContent = titleContent
+                //     select.classList.remove('active')
+                // }
+            } else {
+                select.forEach(elSelect => {
+                    elSelect.classList.remove('active')
+                })
+            }
+        })
+    }
+
     header()
-    mainSlider()
     reviews()
     menu()
+    sectionMainSlider()
+    whyWe()
+    project()
+    geographyObjects()
+    select()
+    // services()
+    mainSlider()
 }

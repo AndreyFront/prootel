@@ -1,1 +1,33 @@
-@media screen and (max-width: 1440px) {}
+@media screen and (max-width: 1440px) {
+    .section-main-slider {
+        .main-slider {
+
+            &__slider.swiper {
+                max-width: calc(100% + 30px);
+                padding-left: 30px;
+                min-height: 528px;
+            }
+    
+            .swiper-pagination,
+            .arrows-group {
+                top: 0;
+            }
+    
+            .swiper-pagination {
+                transform: translate(0, calc(-100% - 26px)) rotate(0);
+            }
+    
+            .arrows-group {
+                transform: translate(0, calc(-100% - 24px));
+                grid-template-columns: repeat(2, max-content);
+                grid-column-gap: 46px;
+    
+                .arrow {
+                    width: max-content;
+                    height: max-content;
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}

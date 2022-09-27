@@ -1,1 +1,68 @@
-@media screen and (max-width: 576px) {}
+@media screen and (max-width: 576px) {
+    .section-main-slider {
+
+        &__block-description,
+        .title {
+            max-width: 350px;
+        }
+
+        .main-slider {
+            &__slider.swiper {
+                min-height: 100px;
+            }
+
+            &__block-image {
+                height: 220px;
+            }
+        }
+    }
+
+    .why-we {
+        &__wrapper-bottom-content {
+
+            .main-container {
+                grid-template-columns: 1fr;
+                grid-row-gap: 32px;
+            }
+        }
+
+        &__block-item {
+            border-right: 1px solid transparent;
+            padding: 0;
+            grid-row-gap: 10px;
+        }
+    }
+
+    .project {
+
+        .main-slider {
+            height: 216px;
+
+            &__block-image {
+                height: 216px;
+            }
+        }
+    }
+
+    .services {
+        .main-slider {
+
+            &__wrapper-info {
+                padding: 20px;
+
+                .btn {
+                    width: 100%;
+                }
+            }
+
+            &__wrapper-info,
+            .swiper-slide:nth-child(2n) .main-slider__wrapper-info {
+                top: auto;
+                bottom: 16px;
+                left: 16px;
+                right: 16px;
+                width: auto;
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        @include('./include/layouts/head.html', {
+            "title": "Страница не найдена"
+        })
+    </head>
+    <body>
+        <div class="wrapper-page">
+            @include('./include/layouts/header.html')
+            <main class="page page-not-found-page" data-page="page">
+                <!-- @include('./include/components/name.html') -->
+                <div class="page-not-found-page__block-image">
+                    <img src="./assets/images/image-10.jpg" class="page-not-found-page__image" alt="">
+                </div>
+                <div class="main-container max-width">
+                    <div class="page-not-found-page__wrapper-content">
+                        <svg class="page-not-found-page__icon">
+                            <use xlink:href="./assets/icons/sprite-svg.svg#404"/>
+                        </svg>
+                        <span class="page-not-found-page__subtitle">
+                            Страница не найдена. Вернитесь на главную или посмотрите <a href="#" class="page-not-found-page__link link-reset">наши проекты</a>.
+                        </span>
+                        <a href="#" class="btn btn--size--sm btn--theme--primary">
+                            <span class="btn__text">На главную</span>
+                        </a>
+                    </div>
+                </div>
+            </main>
+            @include('./include/layouts/footer.html')
+            @include('./include/layouts/scripts.html')
+        </div>
+    </body>
+</html>

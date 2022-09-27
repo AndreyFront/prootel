@@ -1,12 +1,12 @@
 .header {
     position: fixed;
-    z-index: 10;
+    z-index: 11;
     top: 0;
     width: 100%;
     flex: 0 0 auto;
     background-color: $color-1;
 
-    &__burger {
+    &__wrapper-burger {
         display: none;
     }
 

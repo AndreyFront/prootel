@@ -29,6 +29,12 @@
             }
         }
 
+        &__wrapper-burger {
+            display: grid;
+            align-items: center;
+            justify-content: center;
+        }
+
         &__burger {
             display: grid;
             width: 30px;
@@ -175,6 +181,44 @@
             grid-template-columns: 70px auto max-content;
             padding-right: 70px;
             height: 70px;
+        }
+    }
+    
+    .section-main-slider {
+
+        &__wrapper-info {
+            grid-column-gap: 0;
+            justify-content: space-between;
+        }
+
+        .main-slider {
+
+            .arrows-group {
+    
+                .arrow {
+    
+                    &__icon {
+                        use {
+                            stroke: $color-2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .projects {
+        .project-card {
+            &__wrapper-info {
+                padding: 24px;
+            }
+        }
+    }
+
+    .about-company {
+        .main-container {
+            grid-template-columns: 400px auto;
+            grid-column-gap: 60px;
         }
     }
 }
