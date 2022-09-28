@@ -2,16 +2,16 @@
 <html lang="ru">
     <head>
         @include('./include/layouts/head.html', {
-            "title": "Наши проекты"
+            "title": "Проект"
         })
     </head>
     <body>
         <div class="wrapper-page">
             @include('./include/layouts/header.html')
-            <main class="page our-projects-page" data-page="page">
+            <main class="page project-page" data-page="page">
                 <!-- @include('./include/components/name.html') -->
                 
-                @include('./include/components/our-projects.html')
+                @include('./include/components/section-project.html')
                 @include('./include/components/geography-objects.html')
             </main>
             @include('./include/layouts/footer.html')

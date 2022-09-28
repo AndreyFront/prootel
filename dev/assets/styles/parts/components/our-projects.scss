@@ -1,0 +1,9 @@
+.our-projects {
+    padding-bottom: 46px;
+
+    &__wrapper-project-cards {
+        display: grid;
+        grid-row-gap: 46px;
+        margin-top: 32px;
+    }
+}

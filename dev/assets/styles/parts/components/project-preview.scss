@@ -1,0 +1,65 @@
+.project-preview {
+    display: grid;
+    grid-template-columns: 447px 1fr;
+
+    &:hover &__block-image {
+        opacity: 0;
+    }
+
+    &__wrapper-info {
+        padding: 48px;
+        background-color: $color-2;
+    }
+
+    &__wrapper-numbers {
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__block-number {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        grid-column-gap: 16px;
+
+        span {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: $color-3;
+        }
+    }
+
+    &__block-info {
+        margin-top: 48px;
+    }
+
+    &__block-description {
+        display: grid;
+        grid-row-gap: 8px;
+        margin-top: 24px;
+    }
+
+    &__description {
+        color: $color-3;
+    }
+
+    &__block-image {
+        position: relative;
+        transition: opacity $transition-time;
+    }
+
+    &__image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .title {}
+
+    .btn {
+        margin-top: 150px;
+    }
+}

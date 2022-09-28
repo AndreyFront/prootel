@@ -1,5 +1,6 @@
 .select {
     position: relative;
+    width: max-content;
 
     &.active {
         .select {
@@ -17,6 +18,18 @@
                 pointer-events: auto;
                 transform: translateY(0);
             }
+        }
+    }
+
+    &--direction--left {
+        .select__block-content {
+            left: 0;
+        }
+    }
+
+    &--direction--right {
+        .select__block-content {
+            right: 0;
         }
     }
 

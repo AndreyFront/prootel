@@ -21,4 +21,20 @@
             text-align: right;
         }
     }
+
+    .section-project {
+        &__wrapper-numbers {
+            width: 400px;
+        }
+
+        &__wrapper-info {
+            max-width: 470px;
+        }
+
+        .main-slider {
+            .arrows-group {
+                left: 3%;
+            }
+        }
+    }
 }

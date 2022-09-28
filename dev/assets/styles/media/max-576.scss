@@ -65,4 +65,34 @@
             }
         }
     }
+
+    .section-project {
+        .main-slider {
+            &__slider.swiper {
+                min-height: 216px;
+                max-height: 216px;
+            }
+
+            &__block-image {
+                height: 216px;
+            }
+        }
+    }
+
+    .our-services {
+        &::before {
+            height: 150px;
+        }
+    }
+
+    .service-card {
+        &__block-image {
+            height: 147px;
+        }
+
+        &__block-description {
+            max-width: none;
+            max-width: 335px;
+        }
+    }
 }
