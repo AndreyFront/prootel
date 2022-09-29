@@ -279,11 +279,13 @@ function whyWe() {
         const blockDecore = main.querySelector('[data-why-we="decore-block"]')
         const slogan = main.querySelector('[data-why-we="slogan"]')
         
-        const clonedNode = slogan.cloneNode(true)
+        if (slogan) {
+            const clonedNode = slogan.cloneNode(true)
 
-        if (blockDecore) {
-            blockDecore.appendChild(clonedNode)
-            slogan.remove()
+            if (blockDecore) {
+                blockDecore.appendChild(clonedNode)
+                slogan.remove()
+            }
         }
     }
 }
@@ -570,7 +572,26 @@ function validateForm() {
             }
         }
     })
-}    
+}
+
+function simpleSlider() {
+    const blockSliders = document.querySelectorAll('[data-simple-slider="main"]')
+
+    if (!blockSliders.length) return
+
+    blockSliders.forEach(blockSlider => {
+        const slider = blockSlider.querySelector('[data-simple-slider="slider"]')
+        const btnPrev = blockSlider.querySelector('[data-simple-slider="btn-prev"]')
+        const btnNext = blockSlider.querySelector('[data-simple-slider="btn-next"]')
+
+        const swiper = new Swiper(slider, {
+            navigation: {
+                nextEl: btnNext,
+                prevEl: btnPrev,
+            },
+        })
+    })
+}
 
 header()
 reviews()
@@ -583,5 +604,6 @@ select()
 validateForm()
 phoneMask()
 serviceCard()
+simpleSlider()
 // services()
 mainSlider()

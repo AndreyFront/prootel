@@ -1,6 +1,21 @@
 .why-we {
     background-color: $color-5;
 
+    &--custom {
+        .why-we__block-title .title {
+            max-width: 747px;
+        }
+    }
+
+    &__block-title {
+        max-width: 1440px;
+        padding-left: 70px;
+        padding-right: 70px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 72px;
+    }
+
     &__wrapper-top-content {
         position: relative;
 

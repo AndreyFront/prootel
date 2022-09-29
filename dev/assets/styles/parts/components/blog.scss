@@ -1,0 +1,16 @@
+.blog {
+    padding-bottom: 52px;
+
+    &__wrapper-articles {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 32px;
+        grid-row-gap: 50px;
+        margin-top: 48px;
+    }
+
+    .block-title {
+        border-bottom: 1px solid $color-7;
+        padding-bottom: 22px;
+    }
+}

@@ -80,4 +80,45 @@
             height: 100%;
         }
     }
+
+    .service {
+        &__wrapper-info {
+            .btn {
+                margin-top: 20px;
+            }
+        }
+
+        &__wrapper-info-blocks {
+            grid-template-columns: 1fr;
+            grid-row-gap: 10px;
+        }
+    }
+
+    .blog {
+        &__wrapper-articles {
+            grid-template-columns: 1fr;
+            grid-row-gap: 24px;
+        }
+    }
+
+    .article-card {
+        &__block-image {
+            height: 185px;
+        }
+    }
+
+    .section-ready-decisions {
+        &__wrapper-info {
+            .main-container {
+                grid-template-columns: 1fr;
+                grid-row-gap: 40px;
+            }
+        }
+
+        &__inner-info {
+            .btn {
+                margin-top: 20px;
+            }
+        }
+    }
 }

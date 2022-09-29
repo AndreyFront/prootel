@@ -1,0 +1,9 @@
+.visualizations {
+    padding-bottom: 48px;
+
+    &__wrapper-sliders {
+        display: grid;
+        grid-row-gap: 32px;
+        margin-top: 48px;
+    }
+}

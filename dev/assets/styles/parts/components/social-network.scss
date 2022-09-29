@@ -8,6 +8,7 @@
     &__li {}
 
     &__link {
+        display: block;
 
         &:hover .social-network__icon use {
             fill: $color-4;
