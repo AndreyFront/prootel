@@ -907,4 +907,22 @@
             }
         }
     }
+
+    .partners {
+        padding-bottom: 40px;
+
+        &__wrapper-partners {
+            margin-top: 40px;
+        }
+    }
+
+    .partner-card {
+        &__wrapper-contacts {
+            padding-bottom: 20px;
+        }
+
+        &__wrapper-about-expert {
+            padding-top: 20px;
+        }
+    }
 }

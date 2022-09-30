@@ -593,6 +593,39 @@ function simpleSlider() {
     })
 }
 
+function partnerCard() {
+    const cards = document.querySelectorAll('[data-partner-card="main"]')
+
+    if (!cards.length) return
+
+    cards.forEach(card => {
+        const list = card.querySelector('[data-partner-card="list"]')
+        const btn = card.querySelector('[data-partner-card="btn"]')
+        const btnText = card.querySelector('[data-partner-card="btn-text"]')
+
+        const oldHeight = list.offsetHeight
+        list.style.height = 'max-content'
+        const newHeight = list.offsetHeight
+
+        if (newHeight > oldHeight) {
+            btn.classList.add('show')
+            btnText.innerHTML = 'Читать больше'
+
+            smoothView(btn, list, oldHeight)
+
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('active')
+
+                if (btn.classList.contains('active')) {
+                    btnText.innerHTML = 'Скрыть'
+                } else {
+                    btnText.innerHTML = 'Читать больше'
+                }
+            })
+        }
+    })
+}
+
 header()
 reviews()
 menu()
@@ -605,5 +638,6 @@ validateForm()
 phoneMask()
 serviceCard()
 simpleSlider()
+partnerCard()
 // services()
 mainSlider()

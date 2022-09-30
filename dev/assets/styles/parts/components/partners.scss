@@ -1,0 +1,25 @@
+.partners {
+    padding-bottom: 174px;
+
+    &__wrapper-partners {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 30px;
+        grid-row-gap: 34px;
+        margin-top: 44px;
+    }
+
+    .block-title {
+        &__header {
+            grid-column-gap: 20px;
+        }
+
+        &__description {
+            display: block;
+            max-width: 636px;
+            color: $color-2;
+            @include adaptiv-font(18, 16);
+            line-height: 1.4em;
+        }
+    }
+}
