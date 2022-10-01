@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        @include('./include/layouts/head.html', {
+            "title": "О компании"
+        })
+    </head>
+    <body>
+        <div class="wrapper-page">
+            @include('./include/layouts/header.html')
+            <main class="page about-company-page" data-page="page">
+                <!-- @include('./include/components/name.html') -->
+                
+                @include('./include/components/section-about-company.html')
+                <section class="why-we why-we--custom" data-why-we="main">
+                    <div class="why-we__wrapper-bottom-content">
+                        <div class="why-we__block-title">
+                            <h3 class="title title--h3 title-reset">Почему нам довеяют сложные и дорогие проекты?</h3>
+                        </div>
+                        <div class="main-container max-width">
+                            <div class="why-we__block-item">
+                                <span class="why-we__item-title">Профессиональная <br> команда</span>
+                                <span class="why-we__item-description">Многочисленные истории успеха в 25 <br> городах, 84 объектах и более 6000 номеров</span>
+                            </div>
+                            <div class="why-we__block-item">
+                                <span class="why-we__item-title">Прозрачная <br> система работ</span>
+                                <span class="why-we__item-description">Мы открыты и не боимся делиться опытом, повышая уровень знаний наших клинетов</span>
+                            </div>
+                            <div class="why-we__block-item">
+                                <span class="why-we__item-title">Профессиональное <br> оснащение</span>
+                                <span class="why-we__item-description">В проектировании номеров мы используем энергосберегающие технологии, негорючий материалы и антивандальные решения</span>
+                            </div>
+                            <div class="why-we__block-item">
+                                <span class="why-we__item-title">Полное погружение <br> в историю клиента</span>
+                                <span class="why-we__item-description">Мы учитываем все важные факторы, от квадротуры до целевой аудитории и тенденции рынка</span>
+                            </div>
+                            <div class="why-we__block-item">
+                                <span class="why-we__item-title">Сопровождение <br> на каждом этапе работы</span>
+                                <span class="why-we__item-description">Наши специалисты всегда на связи. Контролируем процесс на каждом этапе работ</span>
+                            </div>
+                            <div class="why-we__block-item">
+                                <span class="why-we__item-title">Успех клиентов <br> — это и наш успех</span>
+                                <span class="why-we__item-description">Создаём комфортное пространство для туристов и помогаем отельерам получить максимальную прибыль</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                @include('./include/components/our-numbers.html')
+                @include('./include/components/our-rest.html')
+                @include('./include/components/persons-company.html')
+                @include('./include/components/proposal.html')
+            </main>
+            @include('./include/layouts/footer.html')
+            @include('./include/layouts/scripts.html')
+        </div>
+    </body>
+</html>

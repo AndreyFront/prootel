@@ -1,0 +1,86 @@
+.section-about-company {
+
+    &__banner {
+        position: relative;
+        height: 380px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    &__banner-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &__wrapper-content {
+        position: relative;
+
+        .main-container {
+            display: grid;
+            align-items: center;
+            height: 100%;
+            padding-top: 32px;
+            padding-bottom: 42px;
+        }
+    }
+
+    &__wrapper-info {
+        max-width: 523px;
+    }
+
+    &__block-text-info {
+        display: grid;
+        grid-row-gap: 5px;
+        margin-top: 24px;
+
+        p {
+            margin: 0;
+            line-height: 1.5em;
+            color: $color-2;
+            opacity: 0.7;
+        }
+    }
+
+    &__wrapper-numbers {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: grid;
+        align-content: start;
+        grid-row-gap: 40px;
+        width: 594px;
+        height: max-content;
+        background-color: $color-4;
+        padding: 89px 111px;
+    }
+
+    &__block-info-number {
+        display: grid;
+        grid-row-gap: 4px;
+        color: $color-3;
+    }
+
+    &__subtitle-info-number {
+        @include adaptiv-font(20, 18);
+    }
+
+    &__number {
+        @include adaptiv-font(64, 32);
+        font-weight: 500;
+    }
+
+    .title {
+        color: $color-4;
+    }
+}

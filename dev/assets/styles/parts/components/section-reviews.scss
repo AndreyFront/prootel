@@ -1,1 +1,34 @@
-.section-reviews {}
+.section-reviews {
+
+    &__wrapper-slider {
+        position: relative;
+        padding: 68px 0;
+        margin-top: 48px;
+    }
+
+    &__slider-decore {
+        position: absolute;
+        top: 0;
+        width: 33%;
+        height: 100%;
+        background-color: $color-4;
+    }
+
+    &__block-slider {
+        position: relative;
+        padding-left: 28%;
+    }
+
+    &__slider {}
+
+    .arrows-group {
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        transform: translate(-100%, -50%);
+    }
+
+    .review-card {
+        height: 100%;
+    }
+}

@@ -96,4 +96,18 @@
             max-width: 335px;
         }
     }
+
+    .privacy-policy {
+        .block-title {
+            .title {
+                font-size: 32px;
+            }
+        }
+    }
+
+    .article {
+        &__wrapper-article .title {
+            font-size: 32px;
+        }
+    }
 }

@@ -561,6 +561,11 @@
             grid-template-columns: 1fr;
             grid-row-gap: 20px;
         }
+
+        &__link-icon {
+            width: 25px;
+            height: 25px;
+        }
     }
 
     .project-preview {
@@ -923,6 +928,113 @@
 
         &__wrapper-about-expert {
             padding-top: 20px;
+        }
+    }
+
+    .section-reviews {
+        &__slider-decore {
+            display: none;
+        }
+
+        &__block-slider {
+            padding-left: 0;
+        }
+
+        &__wrapper-slider {
+            margin-top: 24px;
+            padding: 48px 0 40px 0;
+        }
+
+        .swiper-slide:not(:last-child).swiper-slide-active {
+            padding-left: 20px;
+        }
+
+        .arrows-group {
+            top: -24px;
+            left: 20px;
+            transform: translate(0, -100%);
+            grid-template-columns: repeat(2, max-content);
+            grid-column-gap: 46px;
+
+            .arrow {
+                width: max-content;
+                height: max-content;
+                background-color: transparent;
+
+                &__icon use {
+                    stroke: $color-2;
+                }
+            }
+        }
+    }
+
+    .review-card {
+        grid-template-columns: 1fr;
+        align-content: start;
+        grid-row-gap: 29px;
+        padding: 29px 20px;
+
+        &__block-image {
+            width: 250px;
+        }
+    }
+
+    .proposal {
+        height: 522px;
+
+        &__block-content {
+            padding: 20px;
+            grid-row-gap: 20px;
+        }
+    }
+
+    .privacy-policy {
+        &__block-text {
+            margin-top: 32px;
+        }
+
+        ol ul {
+            margin-left: -30px;
+        }
+    }
+
+    .article {
+        &__wrapper-article {
+            margin-top: 25px;
+        }
+
+        &__banner {
+            margin-top: 14px;
+            height: 317px;
+        }
+
+        &__wrapper-article-text {
+            .main-container {
+                padding-left: 22px;
+                padding-right: 22px;
+            }
+        }
+
+        &__block-article-text {
+            padding: 20px 0 24px 0;
+
+            span {
+                text-align: left;
+                margin-bottom: 0;
+
+                &:not(:first-child) {
+                    margin-top: 24px;
+                }
+            }
+
+            p {
+                margin: 10px 0;
+            }
+    
+            img {
+                height: 317px;
+                margin: 10px 0;
+            }
         }
     }
 }

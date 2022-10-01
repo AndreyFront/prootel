@@ -238,4 +238,21 @@
             grid-template-columns: repeat(2, 1fr);
         }
     }
+
+    .section-reviews {
+        &__slider-decore {
+            width: 20%;
+        }
+
+        &__block-slider {
+            padding-left: 150px;
+        }
+    }
+
+    .review-card {
+        &__wrapper-info-client {
+            grid-template-columns: max-content;
+            grid-row-gap: 12px;
+        }
+    }
 }

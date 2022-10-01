@@ -30,4 +30,14 @@
             }
         }
     }
+
+    .section-reviews {
+        &__slider-decore {
+            width: 28%;
+        }
+
+        &__block-slider {
+            padding-left: 23%;
+        }
+    }
 }

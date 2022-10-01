@@ -2,16 +2,16 @@
 <html lang="ru">
     <head>
         @include('./include/layouts/head.html', {
-            "title": "Отзывы"
+            "title": "Статья"
         })
     </head>
     <body>
         <div class="wrapper-page">
             @include('./include/layouts/header.html')
-            <main class="page reviews-page" data-page="page">
+            <main class="page article-page" data-page="page">
                 <!-- @include('./include/components/name.html') -->
                 
-                @include('./include/components/section-reviews.html')
+                @include('./include/components/article.html')
                 @include('./include/components/proposal.html')
             </main>
             @include('./include/layouts/footer.html')

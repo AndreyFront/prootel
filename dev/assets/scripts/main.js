@@ -626,6 +626,154 @@ function partnerCard() {
     })
 }
 
+function sectionReviews() {
+    const main = document.querySelector('[data-section-reviews="main"]')
+
+    if (!main) return
+
+    const slider = main.querySelector('[data-section-reviews="slider"]')
+    const slides = slider.querySelectorAll('.swiper-slide')
+    const btnPrev = main.querySelector('[data-section-reviews="btn-prev"]')
+    const btnNext = main.querySelector('[data-section-reviews="btn-next"]')
+
+    const swiper = new Swiper(slider, {
+        slidesPerView: 1.05,
+        spaceBetween: 10,
+        navigation: {
+          nextEl: btnNext,
+          prevEl: btnPrev,
+        },
+        breakpoints: {
+            1300: {
+                slidesPerView: 1.15,
+                spaceBetween: 32,
+            },
+        }
+    })
+
+    slides.forEach(slide => slide.style.height = `${slider.offsetHeight}px`)
+}
+
+function sectionAboutCompany() {
+    const main = document.querySelector('[data-section-about-company="main"]')
+
+    if (!main) return
+
+    if (window.matchMedia("(min-width: 992px)").matches) {
+        const wrapperContent = main.querySelector('[data-section-about-company="wrapper-content"]')
+        const wrapperNumbers = main.querySelector('[data-section-about-company="wrapper-numbers"]')
+
+        wrapperContent.style.height = `${wrapperNumbers.offsetHeight}px`
+    }
+}
+
+function ourNumbers() {
+    const main = document.querySelector('[data-our-numbers="main"]')
+
+    if (!main) return
+
+    const slider = main.querySelector('[data-our-numbers="slider"]')
+
+    const swiper = new Swiper(slider, {
+        effect: "fade",
+    })
+}
+
+function ourRest() {
+    const main = document.querySelector('[data-our-rest="main"]')
+
+    if (!main) return
+
+    const slider = main.querySelector('[data-our-rest="slider"]')
+    const slides = main.querySelectorAll('[data-our-rest="slide"]')
+    const btnNext = main.querySelector('[data-our-rest="btn-next"]')
+    const btnPrev = main.querySelector('[data-our-rest="btn-prev"]')
+    const pagination = main.querySelector('[data-our-rest="pagination"]')
+    const blocksImage = main.querySelectorAll('[data-our-rest="block-image"]')
+
+    const swiper = new Swiper(slider, {
+        slidesPerView: 2,
+        spaceBetween: 10,
+        watchSlidesProgress: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+        },
+        pagination: {
+            el: pagination,
+            type: "fraction",
+        },
+        navigation: {
+            nextEl: btnNext,
+            prevEl: btnPrev,
+        },
+    })
+
+    if (blocksImage.length > 2) {
+        slider.insertAdjacentHTML('beforeend', `
+            <div class="our-rest__block-progress-line">
+                <div class="our-rest__progress-line" data-our-rest="progress-line"></div>
+            </div>
+        `)
+
+
+        function sliderFunc() {
+            const progressLine = slider.querySelector('[data-our-rest="progress-line"]')
+
+            if (slider.classList.contains('swiper-slide-active')) {
+                progressLine.classList.add('our-rest__progress-line--animate')
+            } else {
+                progressLine.classList.remove('our-rest__progress-line--animate')
+            }
+        }
+
+        sliderFunc()
+
+        setInterval(() => {
+            sliderFunc()
+        }, 3000)
+
+        let observer = new MutationObserver(mutationRecords => {
+            sliderFunc()
+        })
+            
+        observer.observe(main, {
+            childList: true,
+            subtree: true,
+            characterDataOldValue: true
+        })
+
+        document.addEventListener('mouseenter', event => {
+            const el = event.target
+            if (el.closest('[data-our-rest="slide"]')) {
+
+                const progressLine = slider.querySelector('[data-our-rest="progress-line"]')
+
+                swiper.autoplay.stop()
+                slider.classList.add('swiper-paused')
+                progressLine.style.animationPlayState = "paused"
+            }
+        }, true)
+
+        document.addEventListener('mouseleave', event => {
+            const el = event.target
+            if (el.closest('[data-our-rest="slide"]')) {
+
+                const progressLine = slider.querySelector('[data-our-rest="progress-line"]')
+
+                swiper.autoplay.start()
+                slider.classList.remove('swiper-paused')
+                progressLine.classList.remove('our-rest__progress-line--animate')
+
+                setTimeout(() => {
+                    progressLine.classList.add('our-rest__progress-line--animate')
+                    progressLine.style.animationPlayState = "running"
+                }, 10)
+            }
+        }, true)
+    }
+}
+
 header()
 reviews()
 menu()
@@ -639,5 +787,9 @@ phoneMask()
 serviceCard()
 simpleSlider()
 partnerCard()
+sectionReviews()
+sectionAboutCompany()
+ourNumbers()
+ourRest()
 // services()
 mainSlider()

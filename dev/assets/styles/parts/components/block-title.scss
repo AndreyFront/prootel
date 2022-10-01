@@ -72,6 +72,33 @@
         }
     }
 
+    &__link {
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        align-items: center;
+        grid-column-gap: 5px;
+        transition: opacity $transition-time;
+
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+
+    &__link-icon {
+        width: 30px;
+        height: 30px;
+
+        use {
+            stroke: $color-4;
+            stroke-width: 2;
+        }
+    }
+
+    &__link-text {
+        @include adaptiv-font(20, 18);
+        color: $color-4;
+    }
+
     .title {
         color: $color-4;
     }

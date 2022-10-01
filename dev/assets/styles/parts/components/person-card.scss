@@ -1,0 +1,39 @@
+.person-card {
+
+    &.active {
+        .person-card__name {
+            border-bottom: 1px solid $color-2;
+        }
+    }
+
+    &__block-image {
+        height: 490px;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &__block-info {
+        display: grid;
+        justify-content: start;
+        margin-top: 24px;
+    }
+
+    &__name,
+    &__post {
+        @include adaptiv-font(20, 18);
+        line-height: 1.5em;
+    }
+
+    &__name {
+        color: $color-2;
+    }
+
+    &__post {
+        color: $color-11;
+    }
+}

@@ -1,0 +1,57 @@
+.persons-company {
+    padding: 49px 0;
+
+    &__wrapper-person {
+        display: grid;
+        grid-template-columns: 413px 1fr;
+        grid-column-gap: 30px;
+    }
+
+    &__block-image {
+        height: 587px;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &__block-info {
+
+        .title {
+            color: $color-2;
+        }
+    }
+
+    &__block-text {
+        display: grid;
+        grid-row-gap: 10px;
+        margin-top: 32px;
+        
+        p {
+            color: $color-2;
+            opacity: 0.7;
+            margin: 0;
+            line-height: 1.4em;
+            @include adaptiv-font(18, 16);
+        }
+    }
+
+    &__wrapper-persons {
+        margin-top: 96px;
+
+        .title {
+            color: $color-2;
+        }
+    }
+
+    &__inner-persons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 30px;
+        grid-row-gap: 68px;
+        margin-top: 32px;
+    }
+}
