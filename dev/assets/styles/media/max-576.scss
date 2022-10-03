@@ -110,4 +110,27 @@
             font-size: 32px;
         }
     }
+
+    .section-about-company {
+        &__banner {
+            height: 172px;
+        }
+    }
+
+    .person-card {
+        &__block-image {
+            height: 192px;
+        }
+    }
+
+    .our-rest {
+        &__block-slider {
+            width: calc(100% + 40px);
+            margin-left: -20px;
+        }
+
+        .swiper-slide:not(:last-child).swiper-slide-active {
+            padding-left: 20px;
+        }
+    }
 }

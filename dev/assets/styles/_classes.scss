@@ -68,6 +68,10 @@ a {
     list-style-type: none;
 }
 
+.wow {
+    visibility: hidden;
+}
+
 .dev {
     display: flex;
     flex-wrap: wrap;
@@ -87,6 +91,13 @@ a {
 
     &__box {
         margin: 50px;
+    }
+
+    &__sign {
+        @include adaptiv-font(23, 20);
+        font-weight: 500;
+        letter-spacing: 1px;
+        line-height: 1.5em;
     }
 
     &__link {

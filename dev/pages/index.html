@@ -15,7 +15,7 @@
             <a href="./home.html" class="dev__link link-reset desktop mobile">Главная</a>
         </div>
         <div class="dev__box">
-            <a href="./about-company.html" class="dev__link link-reset ">О компании</a>
+            <a href="./about-company.html" class="dev__link link-reset desktop mobile">О компании</a>
         </div> 
         <div class="dev__box">
             <a href="./our-projects.html" class="dev__link link-reset desktop mobile">Наши проекты</a>
@@ -56,6 +56,22 @@
         <div class="dev__box">
             <a href="./page-not-found.html" class="dev__link link-reset desktop mobile">404</a>
         </div>
+
+        <div class="dev__box">
+            <span class="dev__sign">Модальные окна</span>
+        </div>
+        <div class="dev__box">
+            <a href="#" class="dev__link link-reset desktop mobile" data-hystmodal="#form">Получить консультацию</a>
+        </div>
+        <div class="dev__box">
+            <a href="#" class="dev__link link-reset desktop mobile" data-hystmodal="#order-project">Заказать проект</a>
+        </div>
+        <div class="dev__box">
+            <a href="#" class="dev__link link-reset desktop mobile" data-hystmodal="#price-catalog">Получите каталог с ценами</a>
+        </div>
+        <div class="dev__box">
+            <a href="#" class="dev__link link-reset desktop mobile" data-hystmodal="#application-sent">Заявка успешно отправлена</a>
+        </div>
         <!-- <div class="dev__box">
             <a href="./_components.html" class="dev__link link-reset">Компоненты</a>
         </div>
@@ -63,6 +79,12 @@
             <a href="./_ui.html" class="dev__link link-reset">Пользовательские элементы</a>
         </div> -->
     </main>
+
+    @include('./include/modal-windows/m-form.html')
+    @include('./include/modal-windows/m-order-project.html')
+    @include('./include/modal-windows/m-price-catalog.html')
+    @include('./include/modal-windows/m-application-sent.html')
+
     @include('./include/layouts/scripts.html')
 </body>
 </html>

@@ -1,0 +1,63 @@
+.modal {
+
+    &--size--bg {
+        .hystmodal {
+            &__window {
+                max-width: 715px;
+            }
+        }
+    }
+
+    &--size--md {
+        .hystmodal {
+            &__window {
+                max-width: 568px;
+            }
+        }
+    }
+
+    &__close-icon {
+        width: 30px;
+        height: 30px;
+
+        use {
+            fill: $color-3;
+        }
+    }
+
+    .form-block {
+        &__block-head {
+            padding-right: 30px;
+        }
+    }
+
+    .hystmodal {
+        &__wrap {
+            padding: 0 20px;
+        }
+
+        &__window {
+            background: $color-5;
+            width: 100%;
+            padding: 40px;
+        }
+
+        &__close {
+            top: 40px;
+            right: 40px;
+            width: max-content;
+            height: max-content;
+            padding: 0;
+            background-image: none;
+            transition: opacity $transition-time;
+
+            &:hover {
+                opacity: 0.7;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}

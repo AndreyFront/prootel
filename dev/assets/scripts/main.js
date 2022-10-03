@@ -3,6 +3,51 @@
 // import validator from 'validator'
 // https://addmorescripts.github.io/hystModal/index_ru.html
 
+window.onload = () => {
+    welcomeAnimation()
+    setTimeout(() => {wow()}, 1800)
+}
+
+function welcomeAnimation() {
+    const main = document.querySelector('[data-welcome-animation="main"]')
+
+    if (!main) return
+
+    const line = main.querySelector('[data-welcome-animation="line"]')
+
+    const tl = gsap.timeline()
+
+    tl
+    .to(line, {
+        width: '100%',
+        duration: 1
+    })
+    .to(line, {
+        y: '100%',
+        opacity: '0',
+        duration: 0.2
+    })
+    .to(main, {
+        backgroundColor: '#1A1E23',
+        duration: 0.2,
+    }, "-=0.29")
+    .to(main, {
+        y: '100%',
+        duration: 1,
+        ease: "sine.out"
+    })
+}
+
+const myModal = new HystModal({
+    linkAttributeName: "data-hystmodal",
+    waitTransitions: true,
+})
+
+function wow() {
+    new WOW({
+        offset: 200,
+    }).init()
+}
 
 function smoothView(btn, el, startHeight = 0) {
 
@@ -45,6 +90,147 @@ function smoothView(btn, el, startHeight = 0) {
         childList: true, 
         subtree: true,
         characterDataOldValue: true
+    })
+}
+
+function validateForm() {
+    const forms = document.querySelectorAll('[data-validate-form]')
+
+    if (!forms.length) return
+
+    document.addEventListener('click', (event) => {
+        const el = event.target
+
+        if (el.closest('[data-validate-form]')) {
+            if (el.closest('button[type="submit"]')) {
+                event.preventDefault()
+
+                const form = el.closest('[data-validate-form]')
+                const inputs = form.querySelectorAll('.input')
+                const textarea = form.querySelectorAll('.textarea')
+
+                const regExpName = /^[A-ZА-ЯЁ]+$/i
+
+                let numberСorrectАields = 0
+
+                const addHeightMessage = () => {
+                    setTimeout(() => {
+                        inputs.forEach(elInput => {
+                            if (elInput.classList.contains('input--error')) {
+                                const message = elInput.querySelector('[data-input="message"]')
+                                const heightMessage = message.offsetHeight
+                                elInput.style.paddingBottom = `${heightMessage}px`
+                            } else {
+                                elInput.style.paddingBottom = '0'
+                            }
+                        })
+                    }, 0)
+                }
+
+                if (inputs.length) {
+                    inputs.forEach(elInput => {
+                        const input = elInput.querySelector('input')
+
+                        if (input.hasAttribute('required')) {
+                            const type = input.getAttribute('data-input-type')
+                            const message = elInput.querySelector('[data-input="message"]')
+
+                            if (input.value) {
+                                const value = input.value
+
+                                if (type === 'tel') {
+                                    if (value.length < 16) {
+                                        elInput.classList.add('input--error')
+                                        message.innerText = 'Введите полный номер'
+                                    } else {
+                                        elInput.classList.remove('input--error')
+                                    }
+                                }
+
+                                if (type === 'name') {
+                                    const minlength = +input.getAttribute('minlength')
+
+                                    if (!value.match(regExpName)) {
+                                        elInput.classList.add('input--error')
+                                        message.innerText = 'Введите имя верно'
+                                    } else {
+                                        elInput.classList.remove('input--error')
+                                    }
+                                }
+
+                                if (type === 'surname') {
+                                    const minlength = +input.getAttribute('minlength')
+
+                                    if (!value.match(regExpName)) {
+                                        elInput.classList.add('input--error')
+                                        message.innerText = 'Введите фамилию верно'
+                                    } else {
+                                        elInput.classList.remove('input--error')
+                                    }
+                                }
+
+                                if (type === 'patronymic') {
+                                    const minlength = +input.getAttribute('minlength')
+
+                                    if (!value.match(regExpName)) {
+                                        elInput.classList.add('input--error')
+                                        message.innerText = 'Введите отчество верно'
+                                    } else {
+                                        elInput.classList.remove('input--error')
+                                    }
+                                }
+
+                                if (type === 'address') {
+                                    const minlength = +input.getAttribute('minlength')
+
+                                    if (!value.match(regExpName)) {
+                                        elInput.classList.add('input--error')
+                                        message.innerText = 'Введите адрес верно'
+                                    } else {
+                                        elInput.classList.remove('input--error')
+                                    }
+                                }
+
+                                if (type === 'email') {
+                                    if (!validator.isEmail(value)) {
+                                        elInput.classList.add('input--error')
+                                        message.innerText = 'Введите корректный email'
+                                    } else {
+                                        elInput.classList.remove('input--error')
+                                    }
+                                }
+
+                                addHeightMessage()
+
+                            } else {
+                                elInput.classList.add('input--error')
+                                addHeightMessage()
+                                message.innerText = 'Это поле обязательно для заполнения'
+                            }
+                        }
+                    })
+
+                    inputs.forEach(elInput => {
+                        if (!elInput.classList.contains('input--error')) {
+                            numberСorrectАields++
+                        } else {
+                            elInput.classList.add('input--error-effect')
+                            setTimeout(() => {
+                                elInput.classList.remove('input--error-effect')
+                            }, 500)
+                        }
+                    })
+
+                    if (numberСorrectАields === inputs.length) {
+                        console.log('Send data')
+
+                        if (form.hasAttribute('action')) {
+                            form.submit()
+                        }
+                    }
+                }
+            }
+        }
     })
 }
 
@@ -433,147 +619,6 @@ function phoneMask() {
     })
 }
 
-function validateForm() {
-    const forms = document.querySelectorAll('[data-validate-form]')
-
-    if (!forms.length) return
-
-    document.addEventListener('click', (event) => {
-        const el = event.target
-
-        if (el.closest('[data-validate-form]')) {
-            if (el.closest('button[type="submit"]')) {
-                event.preventDefault()
-
-                const form = el.closest('[data-validate-form]')
-                const inputs = form.querySelectorAll('.input')
-                const textarea = form.querySelectorAll('.textarea')
-
-                const regExpName = /^[A-ZА-ЯЁ]+$/i
-
-                let numberСorrectАields = 0
-
-                const addHeightMessage = () => {
-                    setTimeout(() => {
-                        inputs.forEach(elInput => {
-                            if (elInput.classList.contains('input--error')) {
-                                const message = elInput.querySelector('[data-input="message"]')
-                                const heightMessage = message.offsetHeight
-                                elInput.style.paddingBottom = `${heightMessage}px`
-                            } else {
-                                elInput.style.paddingBottom = '0'
-                            }
-                        })
-                    }, 0)
-                }
-
-                if (inputs.length) {
-                    inputs.forEach(elInput => {
-                        const input = elInput.querySelector('input')
-
-                        if (input.hasAttribute('required')) {
-                            const type = input.getAttribute('data-input-type')
-                            const message = elInput.querySelector('[data-input="message"]')
-
-                            if (input.value) {
-                                const value = input.value
-
-                                if (type === 'tel') {
-                                    if (value.length < 16) {
-                                        elInput.classList.add('input--error')
-                                        message.innerText = 'Введите полный номер'
-                                    } else {
-                                        elInput.classList.remove('input--error')
-                                    }
-                                }
-
-                                if (type === 'name') {
-                                    const minlength = +input.getAttribute('minlength')
-
-                                    if (!value.match(regExpName)) {
-                                        elInput.classList.add('input--error')
-                                        message.innerText = 'Введите имя верно'
-                                    } else {
-                                        elInput.classList.remove('input--error')
-                                    }
-                                }
-
-                                if (type === 'surname') {
-                                    const minlength = +input.getAttribute('minlength')
-
-                                    if (!value.match(regExpName)) {
-                                        elInput.classList.add('input--error')
-                                        message.innerText = 'Введите фамилию верно'
-                                    } else {
-                                        elInput.classList.remove('input--error')
-                                    }
-                                }
-
-                                if (type === 'patronymic') {
-                                    const minlength = +input.getAttribute('minlength')
-
-                                    if (!value.match(regExpName)) {
-                                        elInput.classList.add('input--error')
-                                        message.innerText = 'Введите отчество верно'
-                                    } else {
-                                        elInput.classList.remove('input--error')
-                                    }
-                                }
-
-                                if (type === 'address') {
-                                    const minlength = +input.getAttribute('minlength')
-
-                                    if (!value.match(regExpName)) {
-                                        elInput.classList.add('input--error')
-                                        message.innerText = 'Введите адрес верно'
-                                    } else {
-                                        elInput.classList.remove('input--error')
-                                    }
-                                }
-
-                                if (type === 'email') {
-                                    if (!validator.isEmail(value)) {
-                                        elInput.classList.add('input--error')
-                                        message.innerText = 'Введите корректный email'
-                                    } else {
-                                        elInput.classList.remove('input--error')
-                                    }
-                                }
-
-                                addHeightMessage()
-
-                            } else {
-                                elInput.classList.add('input--error')
-                                addHeightMessage()
-                                message.innerText = 'Это поле обязательно для заполнения'
-                            }
-                        }
-                    })
-
-                    inputs.forEach(elInput => {
-                        if (!elInput.classList.contains('input--error')) {
-                            numberСorrectАields++
-                        } else {
-                            elInput.classList.add('input--error-effect')
-                            setTimeout(() => {
-                                elInput.classList.remove('input--error-effect')
-                            }, 500)
-                        }
-                    })
-
-                    if (numberСorrectАields === inputs.length) {
-                        console.log('Send data')
-
-                        if (form.hasAttribute('action')) {
-                            form.submit()
-                        }
-                    }
-                }
-            }
-        }
-    })
-}
-
 function simpleSlider() {
     const blockSliders = document.querySelectorAll('[data-simple-slider="main"]')
 
@@ -685,93 +730,23 @@ function ourRest() {
     if (!main) return
 
     const slider = main.querySelector('[data-our-rest="slider"]')
-    const slides = main.querySelectorAll('[data-our-rest="slide"]')
     const btnNext = main.querySelector('[data-our-rest="btn-next"]')
     const btnPrev = main.querySelector('[data-our-rest="btn-prev"]')
-    const pagination = main.querySelector('[data-our-rest="pagination"]')
-    const blocksImage = main.querySelectorAll('[data-our-rest="block-image"]')
 
     const swiper = new Swiper(slider, {
-        slidesPerView: 2,
+        slidesPerView: 1.1,
         spaceBetween: 10,
-        watchSlidesProgress: true,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false
-        },
-        pagination: {
-            el: pagination,
-            type: "fraction",
-        },
         navigation: {
             nextEl: btnNext,
             prevEl: btnPrev,
         },
-    })
-
-    if (blocksImage.length > 2) {
-        slider.insertAdjacentHTML('beforeend', `
-            <div class="our-rest__block-progress-line">
-                <div class="our-rest__progress-line" data-our-rest="progress-line"></div>
-            </div>
-        `)
-
-
-        function sliderFunc() {
-            const progressLine = slider.querySelector('[data-our-rest="progress-line"]')
-
-            if (slider.classList.contains('swiper-slide-active')) {
-                progressLine.classList.add('our-rest__progress-line--animate')
-            } else {
-                progressLine.classList.remove('our-rest__progress-line--animate')
-            }
+        breakpoints: {
+            576: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+            },
         }
-
-        sliderFunc()
-
-        setInterval(() => {
-            sliderFunc()
-        }, 3000)
-
-        let observer = new MutationObserver(mutationRecords => {
-            sliderFunc()
-        })
-            
-        observer.observe(main, {
-            childList: true,
-            subtree: true,
-            characterDataOldValue: true
-        })
-
-        document.addEventListener('mouseenter', event => {
-            const el = event.target
-            if (el.closest('[data-our-rest="slide"]')) {
-
-                const progressLine = slider.querySelector('[data-our-rest="progress-line"]')
-
-                swiper.autoplay.stop()
-                slider.classList.add('swiper-paused')
-                progressLine.style.animationPlayState = "paused"
-            }
-        }, true)
-
-        document.addEventListener('mouseleave', event => {
-            const el = event.target
-            if (el.closest('[data-our-rest="slide"]')) {
-
-                const progressLine = slider.querySelector('[data-our-rest="progress-line"]')
-
-                swiper.autoplay.start()
-                slider.classList.remove('swiper-paused')
-                progressLine.classList.remove('our-rest__progress-line--animate')
-
-                setTimeout(() => {
-                    progressLine.classList.add('our-rest__progress-line--animate')
-                    progressLine.style.animationPlayState = "running"
-                }, 10)
-            }
-        }, true)
-    }
+    })
 }
 
 header()

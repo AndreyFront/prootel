@@ -1,12 +1,74 @@
 <section class="section-main-slider" data-section-main-slider="main">
-    <div class="section-main-slider__decore-block" data-section-main-slider="decore-block"></div>
+    <div class="section-main-slider__decore-block wow animate__fadeInRight" data-wow-duration="1s" data-section-main-slider="decore-block"></div>
     <div class="main-container max-width">
         <div class="section-main-slider__wrapper-info">
-            <h2 class="title title--h1 title-reset">Комплексное <br> оснащение <br> отелей</h2>
-            <div class="section-main-slider__block-description">
+            <h2 class="title title--h1 title-reset wow animate__fadeInUp" data-wow-duration="0.7s">Комплексное <br> оснащение <br> отелей</h2>
+            <div class="section-main-slider__block-description wow animate__fadeInUp" data-wow-duration="0.7s">
                 <span class="section-main-slider__description">Консультируем, разрабатываем дизайн проекты и планировочные решения для номеров любой категории. Производим закупку и оснащение номеров отелей под ключ</span>
             </div>
         </div>
-        @include('./main-slider.html')
+        <div class="main-slider wow animate__fadeInUp" data-wow-duration="0.7s" data-main-slider="main-slider">
+            <div class="swiper main-slider__slider" data-main-slider="slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-main-slider="slide">
+                        <a href="#" class="link-reset">
+                            <div class="main-slider__block-image" data-main-slider="block-image">
+                                <img src="./assets/images/image-1.jpg" class="main-slider__image" alt="">
+                            </div>
+                        </a>
+                        <div class="main-slider__wrapper-info">
+                            <a href="#" class="link-reset">
+                                <div class="main-slider__block-info">
+                                    <span class="main-slider__number-slide">01</span>
+                                    <span class="main-slider__title-slide">Каспий Марина</span>
+                                    <span class="main-slider__subtitle-slide">Апартаменты в Каспийске</span>
+                                </div>
+                            </a>
+                            <a href="#" class="link link--theme--light link-reset">
+                                <span class="link__name">Получить каталог с ценами</span>
+                                <svg class="link__icon">
+                                    <use xlink:href="./assets/icons/sprite-svg.svg#big-arrow-right"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-main-slider="slide">
+                        <a href="#" class="link-reset">
+                            <div class="main-slider__block-image" data-main-slider="block-image">
+                                <img src="./assets/images/image-2.jpg" class="main-slider__image" alt="">
+                            </div>
+                        </a>
+                        <div class="main-slider__wrapper-info">
+                            <a href="#" class="link-reset">
+                                <div class="main-slider__block-info">
+                                    <span class="main-slider__number-slide">02</span>
+                                    <span class="main-slider__title-slide">Каспий Марина 2</span>
+                                    <span class="main-slider__subtitle-slide">Апартаменты в Каспийске 2</span>
+                                </div>
+                            </a>
+                            <a href="#" class="link link--theme--light link-reset">
+                                <span class="link__name">Получить каталог с ценами</span>
+                                <svg class="link__icon">
+                                    <use xlink:href="./assets/icons/sprite-svg.svg#big-arrow-right"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="arrows-group">
+                <button type="button" class="arrow arrow--theme--light" data-main-slider="btnPrev">
+                    <svg class="arrow__icon">
+                        <use xlink:href="./assets/icons/sprite-svg.svg#arrow-left"/>
+                    </svg>
+                </button>
+                <button type="button" class="arrow arrow--theme--light" data-main-slider="btnNext">
+                    <svg class="arrow__icon">
+                        <use xlink:href="./assets/icons/sprite-svg.svg#arrow-right"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="swiper-pagination" data-main-slider="pagination"></div>
+        </div>
     </div>
 </section>

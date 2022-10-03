@@ -33,9 +33,12 @@
     "webpack-stream": "^7.0.0"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
+    "gsap": "^3.11.2",
     "imask": "^6.4.2",
     "normalize.css": "^8.0.1",
     "swiper": "^8.1.4",
-    "validator": "^13.7.0"
+    "validator": "^13.7.0",
+    "wow.js": "^1.2.2"
   }
 }

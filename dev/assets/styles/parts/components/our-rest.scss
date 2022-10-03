@@ -8,7 +8,7 @@
 
     &__block-image {
         position: relative;
-        height: 750px;
+        height: 100%;
     }
 
     &__block-progress-line {
@@ -55,5 +55,10 @@
         margin: 0 auto;
         color: $color-2;
         text-align: center;
+    }
+
+    .arrows-group {
+        width: max-content;
+        margin: 30px auto 0 auto;
     }
 }

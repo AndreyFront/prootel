@@ -255,4 +255,10 @@
             grid-row-gap: 12px;
         }
     }
+
+    .section-about-company {
+        &__wrapper-numbers {
+            width: 400px;
+        }
+    }
 }

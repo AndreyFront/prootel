@@ -128,4 +128,66 @@
             grid-row-gap: 16px;
         }
     }
+
+    .section-about-company {
+        &__banner {
+            height: 300px;
+        }
+    }
+
+    .person-card {
+        &__block-image {
+            height: 300px;
+        }
+    }
+
+    .persons-company {
+        &__block-image {
+            height: 476px;
+        }
+    }
+
+    .modal {
+        &__close-icon {
+            width: 24px;
+            height: 24px;
+        }
+    
+        .hystmodal {    
+            &__window {
+                padding: 24px 20px;
+            }
+    
+            &__close {
+                top: 24px;
+                right: 20px;
+            }
+        }
+    }
+
+    .form-block {
+        &--radio {
+            .form-block {
+                &__block-head {
+                    margin-bottom: 16px;
+                }
+            }
+        }
+
+        &__wrapper-radio {
+            grid-row-gap: 12px;
+            margin-bottom: 6px;
+        }
+
+        &__inner-radio {
+            grid-template-columns: max-content;
+            grid-auto-flow: row;
+            grid-row-gap: 13px;
+        }
+
+        &__block-head {
+            grid-row-gap: 16px;
+            margin-bottom: 24px;
+        }
+    }
 }

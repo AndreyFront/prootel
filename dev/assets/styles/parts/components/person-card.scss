@@ -1,5 +1,9 @@
 .person-card {
 
+    &:hover &__image {
+        transform: scale(1.05);
+    }
+
     &.active {
         .person-card__name {
             border-bottom: 1px solid $color-2;
@@ -8,6 +12,7 @@
 
     &__block-image {
         height: 490px;
+        overflow: hidden;
     }
 
     &__image {
@@ -15,6 +20,7 @@
         height: 100%;
         object-fit: cover;
         object-position: center;
+        transition: transform 0.5s;
     }
 
     &__block-info {

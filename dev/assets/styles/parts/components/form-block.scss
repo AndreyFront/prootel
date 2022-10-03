@@ -1,6 +1,14 @@
 .form-block {
     position: relative;
 
+    &--radio {
+        .form-block {
+            &__block-head {
+                margin-bottom: 8px;
+            }
+        }
+    }
+
     &__block-head {
         display: grid;
         grid-row-gap: 24px;
@@ -11,6 +19,26 @@
         color: $color-8;
         @include adaptiv-font(20, 18);
         line-height: 1.5em;
+    }
+
+    &__wrapper-radio {
+        display: grid;
+        grid-row-gap: 16px;
+        margin-bottom: 12px;
+    }
+
+    &__radio-title {
+        @include adaptiv-font(20, 18);
+        color: $color-8;
+    }
+
+    &__inner-radio {
+        display: grid;
+        grid-auto-columns: max-content;
+        grid-auto-flow: column;
+        grid-column-gap: 24px;
+
+        .radio {}
     }
 
     &__block-message {
