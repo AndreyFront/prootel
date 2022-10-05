@@ -5,15 +5,24 @@
 
 window.onload = () => {
     welcomeAnimation()
-    setTimeout(() => {wow()}, 1800)
+    if (window.matchMedia("(min-width: 992px)").matches) {
+        setTimeout(() => {wow()}, 1800)
+    }
 }
 
 function welcomeAnimation() {
     const main = document.querySelector('[data-welcome-animation="main"]')
 
     if (!main) return
-
+    
+    const wrapperPage = document.querySelector('.wrapper-page')
     const line = main.querySelector('[data-welcome-animation="line"]')
+
+    if (wrapperPage) {
+        setTimeout(() => {
+            wrapperPage.classList.add('wrapper-page--not-fill')
+        }, 100)
+    }
 
     const tl = gsap.timeline()
 
@@ -239,7 +248,7 @@ function scrollbarWidth() {
     const windowsWidth = parseInt(window.innerWidth)
     const scrollbarWidth = windowsWidth - documentWidth
     return scrollbarWidth
-    }
+}
 
 function header() {
     const header = document.querySelector('[data-header="header"]')
@@ -721,6 +730,9 @@ function ourNumbers() {
 
     const swiper = new Swiper(slider, {
         effect: "fade",
+        autoplay: {
+            delay: 3000,
+        },
     })
 }
 

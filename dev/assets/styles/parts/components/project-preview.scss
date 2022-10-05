@@ -2,8 +2,8 @@
     display: grid;
     grid-template-columns: 447px 1fr;
 
-    &:hover &__block-image {
-        opacity: 0;
+    &:hover &__image {
+        transform: scale(1.05);
     }
 
     &__wrapper-info {
@@ -46,7 +46,7 @@
 
     &__block-image {
         position: relative;
-        transition: opacity $transition-time;
+        overflow: hidden;
     }
 
     &__image {
@@ -55,6 +55,7 @@
         height: 100%;
         object-fit: cover;
         object-position: center;
+        transition: transform 0.5s;
     }
 
     .title {}
