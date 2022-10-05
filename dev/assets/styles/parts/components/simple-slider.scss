@@ -27,16 +27,6 @@
         left: 0;
         width: 100%;
         height: 100%;
-
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.3);
-        }
     }
 
     &__image {
@@ -44,10 +34,12 @@
         height: 100%;
         object-fit: cover;
         object-position: center;
+        transition: transform 0.5s;
     }
 
     .title {
         position: relative;
+        z-index: 2;
         color: $color-2;
     }
 
@@ -56,6 +48,23 @@
         display: grid;
         align-items: center;
         justify-content: center;
+
+        &:first-child:hover .simple-slider__image {
+            transform: scale(1.05);
+        }
+
+        &:first-child .simple-slider__block-image {
+            &::before {
+                content: '';
+                position: absolute;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+        }
     }
 
     .arrows-group {

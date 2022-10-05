@@ -72,6 +72,10 @@
             line-height: 1.3em;
             margin: 0;
 
+            span {
+                opacity: 0.7;
+            }
+
             b {
                 @include adaptiv-font(22, 20);
                 font-weight: 500;

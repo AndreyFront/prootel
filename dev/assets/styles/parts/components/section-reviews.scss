@@ -21,6 +21,10 @@
 
     &__slider {}
 
+    .swiper-slide:last-child.swiper-slide-active {
+        padding-right: 70px;
+    }
+
     .arrows-group {
         position: absolute;
         z-index: 1;

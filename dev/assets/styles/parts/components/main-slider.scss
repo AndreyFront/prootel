@@ -1,6 +1,16 @@
 .main-slider {
     position: relative;
 
+    &--line-top {
+        .swiper-slide.swiper-slide-active .main-slider__block-image {
+
+            &::before,
+            &::after {
+                top: 0;
+            }
+        }
+    }
+
     &__block-image {
         position: relative;
         height: 528px;
@@ -94,6 +104,32 @@
 
         &.swiper-slide-active {
             opacity: 1 !important;
+
+            &--line-paused .main-slider__block-image::after {
+                animation-play-state: paused !important;
+            }
+
+            .main-slider__block-image {
+
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    height: 8px;
+                    bottom: 0;
+                    left: 0;
+                }
+    
+                &::before {
+                    width: 100%;
+                    background-color: rgba(255, 255, 255, 0.2);
+                }
+            
+                &::after {
+                    background-color: $color-4;
+                    animation: progress-line 3s cubic-bezier(.3,0,.3,1) forwards;
+                }
+            }
         }
     }
 

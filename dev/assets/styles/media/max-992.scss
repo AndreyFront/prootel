@@ -255,6 +255,10 @@
         &__block-description {
             max-width: 335px;
             margin-top: 20px;
+
+            p {
+                line-height: 1.56em;
+            }
         }
 
         &__block-item {
@@ -515,6 +519,10 @@
                 width: max-content;
                 height: max-content;
                 background-color: transparent;
+
+                &--theme--dark:not([disabled]):hover .arrow__icon use {
+                    stroke: $color-2;
+                }
             }
         }
 
@@ -552,9 +560,12 @@
         }
 
         &__list {
-            padding-bottom: 15px;
             grid-column-gap: 20px;
             overflow-x: auto;
+
+            &::-webkit-scrollbar {
+                width: 0;
+            }
         }
 
         &__header {
@@ -785,18 +796,27 @@
         }
 
         &__form {
-            grid-row-gap: 18px;
+            grid-row-gap: 16px;
         }
     }
 
     .input {
-        padding-top: 17px;
+        padding-top: 0;
+
+        &__block-input {
+            display: grid;
+        }
 
         &__placeholder {
-            top: -8px;
+            position: relative;
+            order: 1;
+            top: 0;
+            transform: translateY(0);
+            margin-bottom: 8px;
         }
 
         &__input {
+            order: 2;
             height: 43px;
         }
     }
@@ -929,6 +949,10 @@
         &__wrapper-about-expert {
             padding-top: 20px;
         }
+
+        &__btn:hover {
+            opacity: 1;
+        }
     }
 
     .section-reviews {
@@ -947,6 +971,10 @@
 
         .swiper-slide:not(:last-child).swiper-slide-active {
             padding-left: 20px;
+        }
+
+        .swiper-slide:last-child.swiper-slide-active {
+            padding-right: 20px;
         }
 
         .arrows-group {
@@ -1034,6 +1062,8 @@
             img {
                 height: 317px;
                 margin: 10px 0;
+                object-fit: cover;
+                object-position: center;
             }
         }
     }

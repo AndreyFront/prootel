@@ -54,7 +54,7 @@ const myModal = new HystModal({
 
 function wow() {
     new WOW({
-        offset: 200,
+        offset: 105, //200
     }).init()
 }
 
@@ -274,24 +274,24 @@ function header() {
 }
 
 function mainSlider() {
-    const mainSlider = document.querySelectorAll('[data-main-slider="main-slider"]')
+        const mainSlider = document.querySelectorAll('[data-main-slider="main-slider"]')
 
     if (!mainSlider.length) return
 
-    const listSliders = []
-
     mainSlider.forEach(itemMainSlider => {
         const slider = itemMainSlider.querySelector('[data-main-slider="slider"]')
-        const slides = itemMainSlider.querySelectorAll('[data-main-slider="slide"]')
         const btnNext = itemMainSlider.querySelector('[data-main-slider="btnNext"]')
         const btnPrev = itemMainSlider.querySelector('[data-main-slider="btnPrev"]')
         const pagination = itemMainSlider.querySelector('[data-main-slider="pagination"]')
         const blocksImage = itemMainSlider.querySelectorAll('[data-main-slider="block-image"]')
+        let effect = slider.getAttribute('data-main-slider-effect')
+
+        if (!effect) effect = "fade"        
 
         const swiper = new Swiper(slider, {
             slidesPerView: 1,
-            effect: "fade",
-            // loop: true,
+            effect: effect,
+            loop: true,
             watchSlidesProgress: true,
             autoplay: {
                 delay: 3000,
@@ -307,79 +307,143 @@ function mainSlider() {
             },
         })
 
-        if (blocksImage.length > 1) {
-            blocksImage.forEach(blockImage => {
-                blockImage.insertAdjacentHTML('beforeend', `
-                    <div class="main-slider__block-progress-line">
-                        <div class="main-slider__progress-line" data-main-slider="progress-line"></div>
-                    </div>
-                `)
-            })
+        const slides = itemMainSlider.querySelectorAll('.swiper-slide')
 
-
-            function slidesFunc() {
+        document.addEventListener('mouseover', (event) => {
+            const el = event.target
+            if (el.closest('[data-main-slider="block-image"]')) {
+                swiper.autoplay.stop()
                 slides.forEach(slide => {
-                    const progressLine = slide.querySelector('[data-main-slider="progress-line"]')
-
                     if (slide.classList.contains('swiper-slide-active')) {
-                        progressLine.classList.add('main-slider__progress-line--animate')
+                        slide.classList.add('swiper-slide-active--line-paused')
                     } else {
-                        progressLine.classList.remove('main-slider__progress-line--animate')
+                        slide.classList.remove('swiper-slide-active--line-paused')
                     }
                 })
             }
-
-            slidesFunc()
-
-            let observer = new MutationObserver(mutationRecords => {
-                slidesFunc()
-            })
-                
-            observer.observe(itemMainSlider, {
-                childList: true,
-                subtree: true,
-                characterDataOldValue: true
-            })
-
-            document.addEventListener('mouseenter', event => {
-                const el = event.target
-                if (el.closest('[data-main-slider="slide"]')) {
-
-                    const slide = el.closest('[data-main-slider="slide"]')
-                    const slider = slide.closest('[data-main-slider="slider"]')
-                    const progressLine = slide.querySelector('[data-main-slider="progress-line"]')
-
-                    swiper.autoplay.stop()
-                    slider.classList.add('swiper-paused')
-                    progressLine.style.animationPlayState = "paused"
-                }
-            }, true)
-
-            document.addEventListener('mouseleave', event => {
-                const el = event.target
-                if (el.closest('[data-main-slider="slide"]')) {
-
-                    const slide = el.closest('[data-main-slider="slide"]')
-                    const slider = slide.closest('[data-main-slider="slider"]')
-                    const progressLine = slide.querySelector('[data-main-slider="progress-line"]')
-
-                    swiper.autoplay.start()
-                    slider.classList.remove('swiper-paused')
-                    progressLine.classList.remove('main-slider__progress-line--animate')
-
-                    setTimeout(() => {
-                        progressLine.classList.add('main-slider__progress-line--animate')
-                        progressLine.style.animationPlayState = "running"
-                    }, 10)
-                }
-            }, true)
-        }
-
-        listSliders.push(swiper)
+        })
+          
+        document.addEventListener('mouseout', (event) => {
+            const el = event.target
+            if (el.closest('[data-main-slider="block-image"]')) {
+                swiper.autoplay.start()
+                slides.forEach(slide => {
+                    if (slide.classList.contains('swiper-slide-active')) {
+                        slide.classList.remove('swiper-slide-active--line-paused')
+                    }
+                })
+            }
+        })
     })
-
-    return listSliders
 }
+
+// function mainSlider() {
+//     const mainSlider = document.querySelectorAll('[data-main-slider="main-slider"]')
+
+//     if (!mainSlider.length) return
+
+//     const listSliders = []
+
+//     mainSlider.forEach(itemMainSlider => {
+//         const slider = itemMainSlider.querySelector('[data-main-slider="slider"]')
+//         const slides = itemMainSlider.querySelectorAll('[data-main-slider="slide"]')
+//         const btnNext = itemMainSlider.querySelector('[data-main-slider="btnNext"]')
+//         const btnPrev = itemMainSlider.querySelector('[data-main-slider="btnPrev"]')
+//         const pagination = itemMainSlider.querySelector('[data-main-slider="pagination"]')
+//         const blocksImage = itemMainSlider.querySelectorAll('[data-main-slider="block-image"]')
+
+//         const swiper = new Swiper(slider, {
+//             slidesPerView: 1,
+//             effect: "fade",
+//             loop: true,
+//             watchSlidesProgress: true,
+//             autoplay: {
+//                 delay: 3000,
+//                 disableOnInteraction: false
+//             },
+//             pagination: {
+//                 el: pagination,
+//                 type: "fraction",
+//             },
+//             navigation: {
+//                 nextEl: btnNext,
+//                 prevEl: btnPrev,
+//             },
+//         })
+
+//         if (blocksImage.length > 1) {
+//             blocksImage.forEach(blockImage => {
+//                 blockImage.insertAdjacentHTML('beforeend', `
+//                     <div class="main-slider__block-progress-line">
+//                         <div class="main-slider__progress-line" data-main-slider="progress-line"></div>
+//                     </div>
+//                 `)
+//             })
+
+
+//             function slidesFunc() {
+//                 slides.forEach(slide => {
+//                     const progressLine = slide.querySelector('[data-main-slider="progress-line"]')
+
+//                     if (slide.classList.contains('swiper-slide-active')) {
+//                         progressLine.classList.add('main-slider__progress-line--animate')
+//                     } else {
+//                         progressLine.classList.remove('main-slider__progress-line--animate')
+//                     }
+//                 })
+//             }
+
+//             slidesFunc()
+
+//             let observer = new MutationObserver(mutationRecords => {
+//                 slidesFunc()
+//             })
+                
+//             observer.observe(itemMainSlider, {
+//                 childList: true,
+//                 subtree: true,
+//                 characterDataOldValue: true
+//             })
+
+//             document.addEventListener('mouseenter', event => {
+//                 const el = event.target
+//                 if (el.closest('[data-main-slider="slide"]')) {
+
+//                     const slide = el.closest('[data-main-slider="slide"]')
+//                     const slider = slide.closest('[data-main-slider="slider"]')
+//                     const progressLine = slide.querySelector('[data-main-slider="progress-line"]')
+
+//                     swiper.autoplay.stop()
+//                     slider.classList.add('swiper-paused')
+//                     progressLine.style.animationPlayState = "paused"
+//                 }
+//             }, true)
+
+//             document.addEventListener('mouseleave', event => {
+//                 const el = event.target
+//                 if (el.closest('[data-main-slider="slide"]')) {
+
+//                     const slide = el.closest('[data-main-slider="slide"]')
+//                     const slider = slide.closest('[data-main-slider="slider"]')
+//                     const progressLine = slide.querySelector('[data-main-slider="progress-line"]')
+
+//                     swiper.autoplay.start()
+//                     slider.classList.remove('swiper-paused')
+//                     progressLine.classList.remove('main-slider__progress-line--animate')
+
+//                     setTimeout(() => {
+//                         progressLine.classList.add('main-slider__progress-line--animate')
+//                         progressLine.style.animationPlayState = "running"
+//                     }, 10)
+//                 }
+//             }, true)
+//         }
+
+//         listSliders.push(swiper)
+//     })
+
+//     return listSliders
+// }
 
 function reviews() {
     const reviews = document.querySelector('[data-reviews="reviews"]')
@@ -393,6 +457,7 @@ function reviews() {
     var swiper = new Swiper(slider, {
         slidesPerView: 1.15,
         spaceBetween: 10,
+        loop: true,
         navigation: {
             nextEl: btnNext,
             prevEl: btnPrev,
@@ -639,6 +704,7 @@ function simpleSlider() {
         const btnNext = blockSlider.querySelector('[data-simple-slider="btn-next"]')
 
         const swiper = new Swiper(slider, {
+            loop: true,
             navigation: {
                 nextEl: btnNext,
                 prevEl: btnPrev,
@@ -693,6 +759,7 @@ function sectionReviews() {
     const swiper = new Swiper(slider, {
         slidesPerView: 1.05,
         spaceBetween: 10,
+        loop: true,
         navigation: {
           nextEl: btnNext,
           prevEl: btnPrev,
@@ -730,6 +797,7 @@ function ourNumbers() {
 
     const swiper = new Swiper(slider, {
         effect: "fade",
+        loop: true,
         autoplay: {
             delay: 3000,
         },
@@ -748,6 +816,7 @@ function ourRest() {
     const swiper = new Swiper(slider, {
         slidesPerView: 1.1,
         spaceBetween: 10,
+        loop: true,
         navigation: {
             nextEl: btnNext,
             prevEl: btnPrev,
