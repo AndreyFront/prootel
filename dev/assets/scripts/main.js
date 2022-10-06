@@ -1,8 +1,3 @@
-// import Swiper from 'swiper'
-// import IMask from 'imask'
-// import validator from 'validator'
-// https://addmorescripts.github.io/hystModal/index_ru.html
-
 window.onload = () => {
     welcomeAnimation()
     if (window.matchMedia("(min-width: 992px)").matches) {
@@ -54,7 +49,7 @@ const myModal = new HystModal({
 
 function wow() {
     new WOW({
-        offset: 105, //200
+        offset: 105,
     }).init()
 }
 
@@ -337,114 +332,6 @@ function mainSlider() {
     })
 }
 
-// function mainSlider() {
-//     const mainSlider = document.querySelectorAll('[data-main-slider="main-slider"]')
-
-//     if (!mainSlider.length) return
-
-//     const listSliders = []
-
-//     mainSlider.forEach(itemMainSlider => {
-//         const slider = itemMainSlider.querySelector('[data-main-slider="slider"]')
-//         const slides = itemMainSlider.querySelectorAll('[data-main-slider="slide"]')
-//         const btnNext = itemMainSlider.querySelector('[data-main-slider="btnNext"]')
-//         const btnPrev = itemMainSlider.querySelector('[data-main-slider="btnPrev"]')
-//         const pagination = itemMainSlider.querySelector('[data-main-slider="pagination"]')
-//         const blocksImage = itemMainSlider.querySelectorAll('[data-main-slider="block-image"]')
-
-//         const swiper = new Swiper(slider, {
-//             slidesPerView: 1,
-//             effect: "fade",
-//             loop: true,
-//             watchSlidesProgress: true,
-//             autoplay: {
-//                 delay: 3000,
-//                 disableOnInteraction: false
-//             },
-//             pagination: {
-//                 el: pagination,
-//                 type: "fraction",
-//             },
-//             navigation: {
-//                 nextEl: btnNext,
-//                 prevEl: btnPrev,
-//             },
-//         })
-
-//         if (blocksImage.length > 1) {
-//             blocksImage.forEach(blockImage => {
-//                 blockImage.insertAdjacentHTML('beforeend', `
-//                     <div class="main-slider__block-progress-line">
-//                         <div class="main-slider__progress-line" data-main-slider="progress-line"></div>
-//                     </div>
-//                 `)
-//             })
-
-
-//             function slidesFunc() {
-//                 slides.forEach(slide => {
-//                     const progressLine = slide.querySelector('[data-main-slider="progress-line"]')
-
-//                     if (slide.classList.contains('swiper-slide-active')) {
-//                         progressLine.classList.add('main-slider__progress-line--animate')
-//                     } else {
-//                         progressLine.classList.remove('main-slider__progress-line--animate')
-//                     }
-//                 })
-//             }
-
-//             slidesFunc()
-
-//             let observer = new MutationObserver(mutationRecords => {
-//                 slidesFunc()
-//             })
-                
-//             observer.observe(itemMainSlider, {
-//                 childList: true,
-//                 subtree: true,
-//                 characterDataOldValue: true
-//             })
-
-//             document.addEventListener('mouseenter', event => {
-//                 const el = event.target
-//                 if (el.closest('[data-main-slider="slide"]')) {
-
-//                     const slide = el.closest('[data-main-slider="slide"]')
-//                     const slider = slide.closest('[data-main-slider="slider"]')
-//                     const progressLine = slide.querySelector('[data-main-slider="progress-line"]')
-
-//                     swiper.autoplay.stop()
-//                     slider.classList.add('swiper-paused')
-//                     progressLine.style.animationPlayState = "paused"
-//                 }
-//             }, true)
-
-//             document.addEventListener('mouseleave', event => {
-//                 const el = event.target
-//                 if (el.closest('[data-main-slider="slide"]')) {
-
-//                     const slide = el.closest('[data-main-slider="slide"]')
-//                     const slider = slide.closest('[data-main-slider="slider"]')
-//                     const progressLine = slide.querySelector('[data-main-slider="progress-line"]')
-
-//                     swiper.autoplay.start()
-//                     slider.classList.remove('swiper-paused')
-//                     progressLine.classList.remove('main-slider__progress-line--animate')
-
-//                     setTimeout(() => {
-//                         progressLine.classList.add('main-slider__progress-line--animate')
-//                         progressLine.style.animationPlayState = "running"
-//                     }, 10)
-//                 }
-//             }, true)
-//         }
-
-//         listSliders.push(swiper)
-//     })
-
-//     return listSliders
-// }
-
 function reviews() {
     const reviews = document.querySelector('[data-reviews="reviews"]')
 
@@ -586,28 +473,6 @@ function geographyObjects() {
     }
 }
 
-function services() {
-    const main = document.querySelector('[data-services="main"]')
-
-    if (!main) return
-
-    if (window.matchMedia("(max-width: 992px)").matches) {
-        const slider = main.querySelector('[data-main-slider="slider"]')
-        const btnPrev = main.querySelector('[data-main-slider="btnPrev"]')
-        const btnNext = main.querySelector('[data-main-slider="btnNext"]')
-
-        // const swiper = new Swiper(slider, {
-        //     slidesPerView: 1.1,
-        //     spaceBetween: 10,
-        //     autoplay: false,
-        //     navigation: {
-        //         nextEl: btnNext,
-        //         prevEl: btnPrev,
-        //     },
-        // })
-    }
-}
-
 function select() {
     const select = document.querySelectorAll('[data-select="select"]')
 
@@ -624,14 +489,6 @@ function select() {
             if (el.closest('[data-select="block-title"]')) {
                 select.classList.toggle('active')
             }
-
-            // if (el.closest('[data-select="list"] > li')) {
-            //     const li = el.closest('[data-select="list"] > li')
-            //     const liContent = li.textContent
-            //     title.textContent = liContent
-            //     li.textContent = titleContent
-            //     select.classList.remove('active')
-            // }
         } else {
             select.forEach(elSelect => {
                 elSelect.classList.remove('active')
@@ -752,7 +609,6 @@ function sectionReviews() {
     if (!main) return
 
     const slider = main.querySelector('[data-section-reviews="slider"]')
-    const slides = slider.querySelectorAll('.swiper-slide')
     const btnPrev = main.querySelector('[data-section-reviews="btn-prev"]')
     const btnNext = main.querySelector('[data-section-reviews="btn-next"]')
 
@@ -771,6 +627,8 @@ function sectionReviews() {
             },
         }
     })
+
+    const slides = slider.querySelectorAll('.swiper-slide')
 
     slides.forEach(slide => slide.style.height = `${slider.offsetHeight}px`)
 }
@@ -847,5 +705,4 @@ sectionReviews()
 sectionAboutCompany()
 ourNumbers()
 ourRest()
-// services()
 mainSlider()

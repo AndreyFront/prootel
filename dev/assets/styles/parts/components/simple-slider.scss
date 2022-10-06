@@ -49,11 +49,12 @@
         align-items: center;
         justify-content: center;
 
-        &:first-child:hover .simple-slider__image {
-            transform: scale(1.05);
-        }
+        &--first-item {
 
-        &:first-child .simple-slider__block-image {
+            &:hover .simple-slider__image {
+                transform: scale(1.05);
+            }
+
             &::before {
                 content: '';
                 position: absolute;
