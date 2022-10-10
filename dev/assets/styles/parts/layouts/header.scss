@@ -36,6 +36,17 @@
             opacity: 1;
             visibility: visible;
         }
+
+        &.active {
+            .link-decore-line {
+                color: $color-4;
+
+                &::after {
+                    width: 100%;
+                    opacity: 1;
+                }
+            }
+        }
     }
 
     &__nav-block-link {}

@@ -624,30 +624,75 @@ function sectionReviews() {
 
     if (!main) return
 
-    const slider = main.querySelector('[data-section-reviews="slider"]')
-    const btnPrev = main.querySelector('[data-section-reviews="btn-prev"]')
-    const btnNext = main.querySelector('[data-section-reviews="btn-next"]')
+    // Slider
 
-    const swiper = new Swiper(slider, {
-        slidesPerView: 1.05,
-        spaceBetween: 10,
-        lazy: true,
-        loop: true,
-        navigation: {
-          nextEl: btnNext,
-          prevEl: btnPrev,
-        },
-        breakpoints: {
-            1300: {
-                slidesPerView: 1.15,
-                spaceBetween: 32,
+    const blockSlider = main.querySelectorAll('[data-section-reviews="block-slider"]')
+    
+
+    blockSlider.forEach(itemSlider => {
+        const slider = itemSlider.querySelector('[data-section-reviews="slider"]')
+        const btnPrev = itemSlider.querySelector('[data-section-reviews="btn-prev"]')
+        const btnNext = itemSlider.querySelector('[data-section-reviews="btn-next"]')
+    
+        const swiper = new Swiper(slider, {
+            slidesPerView: 1.05,
+            spaceBetween: 10,
+            lazy: true,
+            loop: true,
+            observer: true,
+            observeParents: true,
+            navigation: {
+                nextEl: btnNext,
+                prevEl: btnPrev,
             },
-        }
+            breakpoints: {
+                1300: {
+                    slidesPerView: 1.15,
+                    spaceBetween: 32,
+                },
+            }
+        })
+    
+        // const slides = slider.querySelectorAll('.swiper-slide')
+
+        // console.log(`Слайдер: ${slides}, Высота слайдера: ${slider.offsetHeight}`)
+    
+        // slides.forEach(slide => slide.style.height = `${slider.offsetHeight}px`)
     })
 
-    const slides = slider.querySelectorAll('.swiper-slide')
+    // Tabs
 
-    slides.forEach(slide => slide.style.height = `${slider.offsetHeight}px`)
+    const itemsNav = main.querySelectorAll('[data-section-reviews="item-nav"]')
+
+    itemsNav.forEach((itemNav, index) => {
+        itemNav.setAttribute('data-section-reviews-index', index)
+        blockSlider[index].setAttribute('data-section-reviews-index', index)
+    })
+
+    document.addEventListener('click', (event) => {
+        const el = event.target
+
+        if (el.closest('[data-section-reviews="item-nav"]')) {
+
+            const itemNav = el.closest('[data-section-reviews="item-nav"]')
+
+            itemsNav.forEach((itemNav, index) => {
+                itemNav.classList.remove('active')
+                blockSlider[index].classList.remove('active')
+            })
+
+            const index = itemNav.getAttribute('data-section-reviews-index')
+
+            blockSlider.forEach(itemBlockSlider => {
+                const indexSlider = itemBlockSlider.getAttribute('data-section-reviews-index')
+
+                if (indexSlider === index) {
+                    itemsNav[index].classList.add('active')
+                    itemBlockSlider.classList.add('active')
+                }
+            })
+        }
+    })
 }
 
 function sectionAboutCompany() {
@@ -707,6 +752,53 @@ function ourRest() {
     })
 }
 
+function map() {
+    ymaps.ready(init)
+
+    function init() {
+        const map = document.querySelector('[data-geography-objects="map"]')
+
+        if (!map) return
+
+        const htmlMapContent = (name, place, image, url) => {
+            return `
+                <div class="map-content">
+                    <div class="map-content__block-info">
+                        <span class="map-content__name">${name}</span>
+                        <span class="map-content__place">${place}</span>
+                    </div>
+                    <div class="map-content__block-image">
+                        <img src="${image}" class="map-content__image"/>
+                    </div>
+                    <div class="map-content__block-link">
+                        <a href="${url}" class="map-content__link">Смотреть проект</a>
+                    </div>
+                </div>
+            `
+        }
+
+        const myMap = new ymaps.Map(map, {
+            center: [55.77101400, 37.63209300],
+            zoom: 13,
+            controls: ["zoomControl"]
+        });
+
+        myMap.controls.add('fullscreenControl', { float: 'left' })
+
+        myMap.geoObjects.add(new ymaps.Placemark([55.77101400, 37.63209300], {
+            balloonContent: htmlMapContent('Гостевой дома “Регата”', 'г. Ростов-на-Дону', './assets/images/image-8.jpg', '#'),
+            preset: 'islands#blackStretchyIcon',
+            draggable: true
+        }, {
+            iconLayout: 'default#image',
+            iconImageHref: './assets/images/point.svg',
+            iconImageSize: [48, 48],
+            iconImageOffset: [-25, 0],
+            hideIconOnBalloonOpen: false
+        }))
+    }
+}
+
 header()
 reviews()
 menu()
@@ -726,3 +818,4 @@ ourNumbers()
 ourRest()
 ourChannel()
 mainSlider()
+map()

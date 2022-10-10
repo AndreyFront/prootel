@@ -12,6 +12,7 @@
 
     &__block-map {
         position: absolute;
+        z-index: 1;
         bottom: 0;
         right: 0;
         width: 50%;
@@ -23,6 +24,36 @@
         height: 100%;
         object-fit: cover;
         object-position: center;
+
+        .ymaps-2-1-79-balloon__content,
+        .ymaps-2-1-79-balloon__layout {
+            background: transparent;
+        }
+
+        .ymaps-2-1-79-balloon__content {
+            padding: 0;
+        }
+
+        .ymaps-2-1-79-balloon__close+.ymaps-2-1-79-balloon__content {
+            margin: 0;
+        }
+
+        .ymaps-2-1-79-balloon__close {
+            right: 4px;
+        }
+        
+        .ymaps-2-1-79-balloon__tail {
+            box-shadow: none;
+            background: transparent;
+
+            &:after {
+                display: none;
+            }
+        }
+
+        .ymaps-2-1-79-balloon {
+            box-shadow: none;
+        }
     }
 
     &__block-description {

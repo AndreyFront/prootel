@@ -15,8 +15,22 @@
     }
 
     &__block-slider {
-        position: relative;
+        position: absolute;
+        top: 0;
         padding-left: 28%;
+        opacity: 0 !important;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateX(50%);
+        transition: transform $transition-time, opacity $transition-time, visibility $transition-time;
+
+        &.active {
+            position: relative;
+            opacity: 1 !important;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(0);
+        }
     }
 
     &__slider {}

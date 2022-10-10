@@ -36,6 +36,10 @@
         }
     }
 
+    .bread-crumbs {
+        display: none;
+    }
+
     .main-slider {
         &__block-progress-line {
             height: 5px;
