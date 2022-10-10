@@ -83,7 +83,7 @@ gulp.task('scripts-libs', () => {
     return src([`${pathSrc.scripts}libs/*.js`], { sourcemaps: true })
         .pipe(concat('libs.js'))
         .pipe(gulpif(isProd, uglify().on('error', notify.onError())))
-        .pipe(gulpif(isProd, rename({ extname: '.min.js' })))
+        // .pipe(gulpif(isProd, rename({ extname: '.min.js' })))
         .pipe(dest(`${pathDist.scripts}`, { sourcemaps: true }))
         .pipe(browserSync.stream());
 })

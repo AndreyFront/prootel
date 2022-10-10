@@ -2,4 +2,6 @@
 
 @import '../../../node_modules/swiper/swiper-bundle';
 @import './libs/hystmodal.min';
-@import '../../../node_modules/animate.css/animate.min';
+@media screen and (min-width: 992px) {
+    @import '../../../node_modules/animate.css/animate.min';
+}

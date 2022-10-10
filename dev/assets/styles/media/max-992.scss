@@ -40,6 +40,20 @@
         &__block-progress-line {
             height: 5px;
         }
+
+        .swiper-slide {
+    
+            &.swiper-slide-active {
+    
+                .main-slider__block-image {
+    
+                    &::before,
+                    &::after {
+                        height: 5px;
+                    }
+                }
+            }
+        }
     }
 
     .header {
@@ -317,6 +331,10 @@
                     width: max-content;
                     height: max-content;
                     background-color: transparent;
+
+                    &--theme--dark:not([disabled]):hover .arrow__icon use {
+                        stroke: $color-2;
+                    }
                 }
             }
         }

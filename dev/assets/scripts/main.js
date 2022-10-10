@@ -285,6 +285,7 @@ function mainSlider() {
 
         const swiper = new Swiper(slider, {
             slidesPerView: 1,
+            lazy: true,
             effect: effect,
             loop: true,
             watchSlidesProgress: true,
@@ -455,6 +456,20 @@ function project() {
     }
 }
 
+function ourChannel() {
+    const main = document.querySelector('[data-our-channel="main"]')
+    if (!main) return
+
+    document.addEventListener('DOMContentLoaded', () => {
+        main.insertAdjacentHTML('afterbegin', `
+            <div class="our-channel__block-bg">
+                <!-- <img src="./assets/images/image-5.jpg" class="our-channel__bg" alt="">-->
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/RwLE3O52Mzg?autoplay=1&mute=1" loading="lazy" title="Fabulously Beautiful Places on the Planet in 4K video format with Wonderful Relaxing Music" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        `)
+    })
+}
+
 function geographyObjects() {
     const main = document.querySelector('[data-geography-objects="main"]')
 
@@ -562,6 +577,7 @@ function simpleSlider() {
 
         const swiper = new Swiper(slider, {
             loop: true,
+            lazy: true,
             navigation: {
                 nextEl: btnNext,
                 prevEl: btnPrev,
@@ -615,6 +631,7 @@ function sectionReviews() {
     const swiper = new Swiper(slider, {
         slidesPerView: 1.05,
         spaceBetween: 10,
+        lazy: true,
         loop: true,
         navigation: {
           nextEl: btnNext,
@@ -655,6 +672,7 @@ function ourNumbers() {
 
     const swiper = new Swiper(slider, {
         effect: "fade",
+        lazy: true,
         loop: true,
         autoplay: {
             delay: 3000,
@@ -674,6 +692,7 @@ function ourRest() {
     const swiper = new Swiper(slider, {
         slidesPerView: 1.1,
         spaceBetween: 10,
+        lazy: true,
         loop: true,
         navigation: {
             nextEl: btnNext,
@@ -705,4 +724,5 @@ sectionReviews()
 sectionAboutCompany()
 ourNumbers()
 ourRest()
+ourChannel()
 mainSlider()
