@@ -261,4 +261,14 @@
             width: 400px;
         }
     }
+
+    .geography-objects {
+        &__decore-block {
+            width: 25%;
+        }
+
+        &__block-map {
+            width: 75%;
+        }
+    }
 }

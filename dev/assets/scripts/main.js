@@ -476,14 +476,24 @@ function geographyObjects() {
     if (!main) return
 
     if (window.matchMedia("(max-width: 992px)").matches) {
+        const blockHead = main.querySelector('[data-geography-objects="block-head"]')
+        const mainContainer = main.querySelector('[data-geography-objects="main-container"]')
+
+        const clonedNodeBlockHead = blockHead.cloneNode(true)
+
         const blockDecore = main.querySelector('[data-geography-objects="decore-block"]')
         const description = main.querySelector('[data-geography-objects="description"]')
         
-        const clonedNode = description.cloneNode(true)
+        const clonedNodeDescription = description.cloneNode(true)
 
         if (blockDecore) {
-            blockDecore.appendChild(clonedNode)
+            blockDecore.appendChild(clonedNodeDescription)
             description.remove()
+        }
+
+        if (mainContainer) {
+            mainContainer.appendChild(clonedNodeBlockHead)
+            blockHead.remove()
         }
     }
 }

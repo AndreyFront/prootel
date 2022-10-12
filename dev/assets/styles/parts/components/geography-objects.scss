@@ -1,5 +1,6 @@
 .geography-objects {
     position: relative;
+    height: 837px;
     background-color: $color-14;
 
     &__decore-block {
@@ -15,8 +16,8 @@
         z-index: 1;
         bottom: 0;
         right: 0;
-        width: 50%;
-        height: 635px;
+        width: 70%;
+        height: 100%;
     }
 
     &__map {
@@ -69,10 +70,20 @@
         color: $color-2;
     }
 
+    &__block-head {
+        position: absolute;
+        z-index: 1;
+        top: 50px;
+        left: 50px;
+        max-width: 540px;
+        padding: 32px 50px;
+        background-color: $color-2;
+    }
+
     .link {
         display: grid;
         width: max-content;
-        margin-top: 512px;
+        margin-top: 40px;
     }
 
     .main-container {
@@ -80,5 +91,6 @@
         padding-left: 22%;
         padding-top: 67px;
         padding-bottom: 90px;
+        height: 100%;
     }
 }
