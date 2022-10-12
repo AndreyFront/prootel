@@ -766,7 +766,7 @@ function map() {
     ymaps.ready(init)
 
     function init() {
-        const map = document.querySelector('[data-geography-objects="map"]')
+        const map = document.querySelector('#map')
 
         if (!map) return
 
