@@ -795,17 +795,23 @@ function map() {
 
         myMap.controls.add('fullscreenControl', { float: 'left' })
 
-        myMap.geoObjects.add(new ymaps.Placemark([55.77101400, 37.63209300], {
+        let pm = new ymaps.Placemark([55.77101400, 37.63209300], {
             balloonContent: htmlMapContent('Гостевой дома “Регата”', 'г. Ростов-на-Дону', './assets/images/image-8.jpg', '#'),
             preset: 'islands#blackStretchyIcon',
-            draggable: true
+            draggable: true,
         }, {
             iconLayout: 'default#image',
             iconImageHref: './assets/images/point.svg',
             iconImageSize: [48, 48],
             iconImageOffset: [-25, 0],
-            hideIconOnBalloonOpen: false
-        }))
+            hideIconOnBalloonOpen: false,
+        })
+
+        myMap.geoObjects.add(pm)
+
+        pm.events.add('click', (event) => {
+            myMap.setCenter(event.get('target').geometry.getCoordinates())
+        })
     }
 }
 
