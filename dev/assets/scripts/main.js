@@ -803,7 +803,7 @@ function map() {
             iconLayout: 'default#image',
             iconImageHref: './assets/images/point.svg',
             iconImageSize: [48, 48],
-            iconImageOffset: [-25, 0],
+            iconImageOffset: [-24, -24],
             hideIconOnBalloonOpen: false,
         })
 

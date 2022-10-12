@@ -54,6 +54,9 @@
 
         .ymaps-2-1-79-balloon {
             box-shadow: none;
+            top: 0px !important;
+            left: 0px !important;
+            transform: translate(-20%, calc(-100% - 30px));
         }
     }
 
